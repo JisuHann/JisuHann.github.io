@@ -10,6 +10,11 @@
     <link rel="shortcut icon" href="images/jisu.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
+    <style>
+      body, p, a, h1, h2, h3, td, table, title, strong, em, span, .name {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,19 +23,23 @@
         <td style="padding:0px">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
+              <td style="padding:2.5%;width:63%;vertical-align:middle;font-size: 1.2em;">
                 <p class="name" style="text-align: center;">
                   Jisu Han
                 </p>
                 <p>
-  I am an incoming Ph.D. student in the Interdisciplinary Program in Artificial Intelligence (IPAI) at 
+  Hi, I'm Jisu! I am an incoming Ph.D. student in the Interdisciplinary Program in Artificial Intelligence (IPAI) at 
   <a href="https://www.snu.ac.kr/">Seoul National University</a>, starting from Fall 2025.
+</p>
+
+<p>
+  My research interests lie in the intersection of robotics and machine learning. I am interested in developing foundation models for robotics that can generalize to new tasks and environments.
 </p>
 
 <p>
   I obtained my Master’s Degree in the Graduate School of AI at 
   <a href="https://www.kaist.ac.kr/en/">KAIST</a>, in the 
-  <a href="https://imsquared.github.io">Intelligent Mobile-Manipulation (IM<sup>2</sup>) Lab</a> 
+  <a href="https://imsquared.github.io">Humanoid Generalization Lab</a> 
   directed by <a href="https://beomjoonkim.github.io">Beomjoon Kim</a>.
   I received my Bachelor’s Degree in Computer Science from 
   <a href="http://ewha.ac.kr/">Ewha Womans University</a>.
@@ -41,6 +50,7 @@
                   <!-- <a href="data/CV.pdf">CV</a> &nbsp;/&nbsp; -->
                   <a href="https://github.com/JisuHann">Github</a> &nbsp;/&nbsp;
                   <a href="https://jisuhann.github.io">Website</a> &nbsp;/&nbsp;
+                  <a href="https://www.linkedin.com/in/jisu-han-/">LinkedIn</a> &nbsp;/&nbsp;
                   <a href="https://scholar.google.com/citations?hl=ko&user=WWg5SyQAAAAJ">Google Scholar</a>
                 </p>
               </td>
@@ -49,25 +59,28 @@
               </td>
             </tr>
           </tbody></table>
+
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
               </td>
             </tr>
-          </tbody></table>
+          </tbody>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
             <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
+                <img src="images/ota.png" alt="clean-usnob" width="160" height="90">
               </td>
               <td width="75%" valign="middle">
-               Option-aware Temporally Abstracted Value for Offline Goal-Conditioned Reinforcement Learning
+                Option-aware Temporally Abstracted Value for Offline Goal-Conditioned Reinforcement Learning
                 <br>
                 Hongjoon Ahn*, Heewoong Choi*, <strong>Jisu Han*</strong>, Taesup Moon
                 <br>
-                <p> Arxiv preprint
-                <br>[<a href="https://arxiv.org/abs/2505.12737">Arxiv</a>]</p>
+                <i>Arxiv preprint 2025</i>
+                <br>
+                <a href="https://arxiv.org/abs/2505.12737">Arxiv</a>
               </td>
                 <!-- <br>[<a href="data/CVPRW_2024_CR.pdf">Paper</a>][<a href="https://github.com/JisuHann/GoS">Github</a>]</p> -->
               </td>
@@ -82,8 +95,9 @@
                 <br>
                 Yoonyoung Cho*, Junhyek Han*, <strong>Jisu Han</strong>, Beomjoon Kim
                 <br>
-                <p>Robotics: Science and Systems (RSS) 2025 
-                <br>[<a href="https://www.roboticsproceedings.org/rss21/p154.pdf">Paper</a>][<a href="https://unicorn-hamnet.github.io">Project</a>]</p>
+                <i>Robotics: Science and Systems (RSS), 2025</i>
+                <br>
+                <a href="https://www.roboticsproceedings.org/rss21/p154.pdf">Paper</a>  <a href="https://unicorn-hamnet.github.io">Project</a>
               </td>
                 <!-- <br>[<a href="data/CVPRW_2024_CR.pdf">Paper</a>][<a href="https://github.com/JisuHann/GoS">Github</a>]</p> -->
               </td>
@@ -97,8 +111,9 @@
                 <br>
                 <strong>Jisu Han</strong>
                 <br>
-                <p>CVPR Workshop (Causal and Object-Centric Representations for Robotics) 2024 <strong>Oral</strong> 
-                <br>[<a href="data/CVPRW_2024_CR.pdf">Paper</a>][<a href="https://github.com/JisuHann/GoS">Github</a>]</p>
+                <i>CVPR Workshop (Causal and Object-Centric Representations for Robotics), 2024 <strong><span style="color: red;">Oral</span></strong></i>
+                <br>
+                <a href="data/CVPRW_2024_CR.pdf">Paper</a>  <a href="https://github.com/JisuHann/GoS">Github</a>
               </td>
             </tr>
 
@@ -111,25 +126,11 @@
                 <br>
                 Jiyong Ahn, Sanghyeon Son, Dongryung Lee,  <strong>Jisu Han</strong>, Dongwon Son, and Beomjoon Kim.
                 <br>
-                <p>Conference on Robot Learnining (CoRL), 2023.
-                <br>[<a href="https://openreview.net/pdf?id=09UL1dCqf2n">Paper</a>][<a href="https://www.youtube.com/watch?v=sONwle96q-8">Video</a>][<a href="https://sites.google.com/view/preference-guided-pomcpow?usp=sharing">Project</a>][<a href="https://github.com/iMSquared/PGP">Github</a>]</p>
+                <i>Conference on Robot Learnining (CoRL), 2023</i>
+                <br>
+                <a href="https://openreview.net/pdf?id=09UL1dCqf2n">Paper</a>  <a href="https://www.youtube.com/watch?v=sONwle96q-8">Video</a>  <a href="https://sites.google.com/view/preference-guided-pomcpow?usp=sharing">Project</a>  <a href="https://github.com/iMSquared/PGP">Github</a>
               </td>
             </tr>
-<!-- 
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/POMDPs.png" alt="clean-usnob" width="160" height="80">
-              </td>
-              <td width="75%" valign="middle">
-                Preference learning for guiding the tree search in continuous POMDPs
-                <br>
-                Jiyong Ahn, Sanghyeon Son, Dongryung Lee,  <strong>Jisu Han</strong>, Dongwon Son, and Beomjoon Kim.
-                <br>
-                <p>Conference on Robot Learnining (CoRL), 2023.</p>
-                <p>[<a href="https://openreview.net/pdf?id=09UL1dCqf2n">Paper</a>][<a href="https://www.youtube.com/watch?v=sONwle96q-8">Video</a>][<a href="https://sites.google.com/view/preference-guided-pomcpow?usp=sharing">Project</a>]</p>
-              </td>
-            </tr> -->
-
 
           </tbody></table>
 
@@ -151,11 +152,14 @@
             <td width="75%" valign="middle">
               Hybrid-Space Diffusion for Task and Motion Planning with Offline RL
               <br>
-              <strong>Jisu Han</strong>, Yoonyoung Cho, and Haewon Jung (AI707: Advanced Topics in Deep Learning (Prof. Kimin Lee) Class project)
+              <strong>Jisu Han</strong>, Yoonyoung Cho, and Haewon Jung
               <br>
-              <p>TL;DR To resolve the downward refinement issues from bi-level planning in Task and Motion planning (TAMP), we adopt
-                hybrid-space diffusion model.
-              <br>[<a href="https://general-bone-2b1.notion.site/AI707-Project-Hybrid-Space-Diffusion-for-Task-and-Motion-Planning-with-Offline-Data-ae60a49af358497b9abd775b26ce22b6">Project</a>]</p>
+              <i>AI707: Advanced Topics in Deep Learning (Prof. Kimin Lee) project</i>
+              <br>
+              <small>TL;DR To resolve the downward refinement issues from bi-level planning in Task and Motion planning (TAMP), we adopt
+                hybrid-space diffusion model.</small>
+              <br>
+              <a href="https://general-bone-2b1.notion.site/AI707-Project-Hybrid-Space-Diffusion-for-Task-and-Motion-Planning-with-Offline-Data-ae60a49af358497b9abd775b26ce22b6">Project</a>
             </td>
             
           </tr>
@@ -167,11 +171,13 @@
             <td width="75%" valign="middle">
               Clarifying the task: Identifying task from human videos as a representation
               <br>
-              <strong>Jisu Han</strong> and Doohyun Lee (AI611: Machine Learning for Robotics (Prof. Joseph Lim) Class project)
+              <strong>Jisu Han</strong> and Doohyun Lee
               <br>
-              <p> TL;DR To learn a generalized reward function that can be utilized on reinforcement learning, we devise a representation that can effectively disentangle environment information and task information.
+              <i>AI611: Machine Learning for Robotics (Prof. Joseph Lim) project</i>
               <br>
-              [<a href="https://general-bone-2b1.notion.site/Clarifying-the-task-Identifying-task-from-human-videos-as-a-representation-for-Robotics-d9e9de56af7c4430bec137a0ff87027b">Project</a>]</p>
+              <small> TL;DR To learn a generalized reward function that can be utilized on reinforcement learning, we devise a representation that can effectively disentangle environment information and task information.</small>
+              <br>
+              <a href="https://general-bone-2b1.notion.site/Clarifying-the-task-Identifying-task-from-human-videos-as-a-representation-for-Robotics-d9e9de56af7c4430bec137a0ff87027b">Project</a>
             </td>
             
           </tr>
@@ -199,10 +205,13 @@
             <td width="75%" valign="middle">
               Compositional Meta Reinforcement Learning
               <br>
-              Yoonyoung Cho and <strong>Jisu Han</strong> (AI614: Advanced deep learning (Prof. Sungju Hwang) Class project)
+              Yoonyoung Cho and <strong>Jisu Han</strong>  
               <br>
-              <p>TL;DR We inject compositional reasoning for robots to quickly learn novel tasks by leveraging reusable elements from previous experiments.
-              <br>[<a href="data/AI602_Project_Proposal.pdf">Paper</a>]</p>
+              <i>AI614: Advanced deep learning (Prof. Sungju Hwang) project</i> 
+              <br>
+              <small>TL;DR We inject compositional reasoning for robots to quickly learn novel tasks by leveraging reusable elements from previous experiments.</small>
+              <br>
+              <a href="data/AI602_Project_Proposal.pdf">Paper</a>
              </td>
             
           </tr>
