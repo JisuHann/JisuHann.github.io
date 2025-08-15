@@ -11,13 +11,24 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
     <style>
+    body {
+        background-color: #ffffff;
+        color: #333333;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
     a {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: #3EAF92; /* 빨간색 */
-  }
-      body, p, h1, h2, h3, td, table, title, strong, em, span, .name {
+        color: #3EAF92;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #2e8b73;
+        text-decoration: none;
+    }
+    body, p, h1, h2, h3, h4, td, table, title, strong, em, span, .name {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      }
+        color: #333333;
+    }
     .navbar {
       background-color: transparent;
       overflow: hidden;
@@ -102,7 +113,7 @@ Hi, I'm Jisu! I am a first-year Ph.D. student in the Interdisciplinary Program i
   <div class="navbar">
     <button onclick="showSection('research')">Research</button>
     <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('experience')">Experience</button>
+    <button onclick="showSection('experience')">Experiences</button>
     <!-- <button onclick="showSection('services')">Services</button> -->
   </div>
   
@@ -297,43 +308,98 @@ Hi, I'm Jisu! I am a first-year Ph.D. student in the Interdisciplinary Program i
     <div id="experience" class="section">
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr>
-        <td style="padding:20px;width:25%;vertical-align:top">
-          <strong>Sep 2024 - Nov 2024</strong>
-        </td>
-        <td style="padding:20px;width:75%;vertical-align:top">
-          <strong>Research Assistant, Cognitive Learning for Vision and Robotics Lab</strong><br>
-          <em>Korea Advanced Institute of Science and Technology (KAIST)</em><br>
-          • Research of analyzing the impact of data scaling on the performance of robotics policies
+        <td style="padding:10px;width:100%;vertical-align:middle">
+          <h4>Research Experience</h4>
         </td>
       </tr>
+      
       <tr>
-        <td style="padding:20px;width:25%;vertical-align:top">
-          <strong>July 2021 - Aug 2022</strong>
-        </td>
-        <td style="padding:20px;width:75%;vertical-align:top">
-          <strong>Research Intern, Intelligent Mobile Manipulation Lab</strong><br>
-          <em>Korea Advanced Institute of Science and Technology (KAIST)</em><br>
-          • Research on interactive perception
+        <td style="padding:10px;width:100%;vertical-align:middle">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="width:25%;vertical-align:top;padding-right:20px;">
+                <strong>Sep 2024 - Nov 2024</strong>
+              </td>
+              <td style="width:75%;vertical-align:top;">
+                <strong>Research Assistant, Cognitive Learning for Vision and Robotics Lab</strong><br>
+                <em>Korea Advanced Institute of Science and Technology (KAIST)</em><br>
+                • Research of analyzing the impact of data scaling on the performance of robotics policies
+              </td>
+            </tr>
+          </table>
         </td>
       </tr>
+      
       <tr>
-        <td style="padding:20px;width:25%;vertical-align:top">
-          <strong>Dec 2020 - Aug 2021</strong>
-        </td>
-        <td style="padding:20px;width:75%;vertical-align:top">
-          <strong>Research Intern, Dynamic Robotic Systems (DYROS) Lab</strong><br>
-          <em>Seoul National University</em><br>
-          • Developed a deep learning based grasp solution, published a domestic paper
+        <td style="padding:10px;width:100%;vertical-align:middle">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="width:25%;vertical-align:top;padding-right:20px;">
+                <strong>July 2021 - Aug 2022</strong>
+              </td>
+              <td style="width:75%;vertical-align:top;">
+                <strong>Research Intern, Intelligent Mobile Manipulation Lab</strong><br>
+                <em>Korea Advanced Institute of Science and Technology (KAIST)</em><br>
+                • Research on interactive perception
+              </td>
+            </tr>
+          </table>
         </td>
       </tr>
+      
       <tr>
-        <td style="padding:20px;width:25%;vertical-align:top">
-          <strong>May 2019 - July 2019</strong>
+        <td style="padding:10px;width:100%;vertical-align:middle">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="width:25%;vertical-align:top;padding-right:20px;">
+                <strong>Dec 2020 - Aug 2021</strong>
+              </td>
+              <td style="width:75%;vertical-align:top;">
+                <strong>Research Intern, Dynamic Robotic Systems (DYROS) Lab</strong><br>
+                <em>Seoul National University</em><br>
+                • Developed a deep learning based grasp solution, published a domestic paper
+              </td>
+            </tr>
+          </table>
         </td>
-        <td style="padding:20px;width:75%;vertical-align:top">
-          <strong>Research Intern, Information Coding and Processing Lab</strong><br>
-          <em>Ewha Womans University</em><br>
-          • Developed a drowsy driving prevention system based on the driver’s eye-tracking system using OpenCV.
+      </tr>
+      
+      <tr>
+        <td style="padding:10px;width:100%;vertical-align:middle">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="width:25%;vertical-align:top;padding-right:20px;">
+                <strong>May 2019 - July 2019</strong>
+              </td>
+              <td style="width:75%;vertical-align:top;">
+                <strong>Research Intern, Information Coding and Processing Lab</strong><br>
+                <em>Ewha Womans University</em><br>
+                • Developed a drowsy driving prevention system based on the driver's eye-tracking system using OpenCV.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      
+      <tr>
+        <td style="padding:10px;width:100%;vertical-align:middle">
+          <h4>Teaching Assistant</h4>
+        </td>
+      </tr>
+      
+      <tr>
+        <td style="padding:10px;width:100%;vertical-align:middle">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="width:25%;vertical-align:top;padding-right:20px;">
+                <strong>Fall 2025</strong>
+              </td>
+              <td style="width:75%;vertical-align:top;">
+                <strong>M2608.002100 Advanced Deep Learning</strong><br>
+                <em>Seoul National University (Prof. Taesup Moon)</em>
+              </td>
+            </tr>
+          </table>
         </td>
       </tr>
     </tbody></table>
