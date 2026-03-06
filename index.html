@@ -2,479 +2,677 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>🥑 Jisu Han</title>
-
+    <title>Jisu Han</title>
     <meta name="author" content="Jisu Han">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="shortcut icon" href="images/avocado_1f951.png" type="image/png"> -->
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <link rel="icon" href="images/avocado_1f951.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
-    body {
-        background-color: #ffffff;
-        color: #333333;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    * { box-sizing: border-box; }
+
+    body, p, a, td, th, tr, h1, h2, h3, h4, strong, em, span, div, button, input {
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     }
+
+    body {
+      background-color: #ffffff;
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
     a {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: #3EAF92;
-        text-decoration: none;
+      color: #2B9E8C;
+      text-decoration: none;
     }
     a:hover {
-        color: #2e8b73;
-        text-decoration: none;
+      color: #1D7A6A;
     }
-    body, p, h1, h2, h3, h4, td, table, title, strong, em, span, .name {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: #333333;
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px 20px;
     }
-    .navbar {
-      background-color: transparent;
-      overflow: hidden;
+
+    /* ── Bio Section ── */
+    .bio {
       display: flex;
-      justify-content: flex-start;
-      margin: 0px 0px 0px 0px;
-      padding-left: 20px;
+      align-items: flex-start;
+      gap: 30px;
+      margin-bottom: 10px;
+    }
+    .bio-text {
+      flex: 1;
+    }
+    .bio-photo {
+      flex-shrink: 0;
+      width: 180px;
+    }
+    .bio-photo img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .name {
+      font-size: 32px;
+      font-weight: 600;
+      color: #222;
+      margin: 0 0 12px 0;
+      padding: 0;
+    }
+
+    .bio-text p {
+      margin: 0 0 10px 0;
+      color: #444;
+    }
+
+    .links {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+    .links a {
+      margin-right: 4px;
+    }
+    .links .sep {
+      color: #ccc;
+      margin: 0 2px;
+    }
+
+    /* ── Tabs ── */
+    .navbar {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #e8e8e8;
+      margin-bottom: 0;
+      padding: 0;
     }
     .navbar button {
-      background-color: transparent;
+      background: none;
       border: none;
-      color: rgba(62, 175, 146, 0.6);
-      padding: 8px 16px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      padding: 10px 20px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 500;
-      transition: all 0.3s ease;
-      margin: 0 8px 0 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #999;
+      font-family: inherit;
+      transition: color 0.2s, border-color 0.2s;
     }
     .navbar button:hover {
-      color: rgba(62, 175, 146, 0.8);
+      color: #2B9E8C;
     }
     .navbar button.active {
-      color: #3EAF92;
+      color: #2B9E8C;
       font-weight: 600;
+      border-bottom-color: #2B9E8C;
     }
+
+    /* ── Sections ── */
     .section {
       display: none;
-      padding: 0px 40px 40px 0px;
-      margin: 5px auto;
-      max-width: 900px;
-      width: 100%;
+      padding: 20px 0;
     }
     .section.active {
       display: block !important;
     }
-    </style>
-  </head>
-  <body>
-    <table style="width:120%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle;font-size: 1.2em;">
-                <p class="name" style="text-align: center;">
-                  Jisu Han
-                </p>
-<p>
-Hi, I'm Jisu! I am a first-year Ph.D. student in the Interdisciplinary Program in Artificial Intelligence (IPAI) at 
-<a href="https://www.snu.ac.kr/">Seoul National University</a>, and a member of the 
-<a href="http://mindlab-snu.notion.site">M.IN.D Lab</a>, where I am fortunate to be advised by 
-<a href="https://scholar.google.com/citations?user=lQlioBoAAAAJ&hl=en">Taesup Moon</a>.
-</p>
 
-<p>
-  I obtained my Master’s Degree in the Graduate School of AI at 
-  <a href="https://www.kaist.ac.kr/en/">KAIST</a>, in the 
-  <a href="https://imsquared.github.io">Humanoid Generalization Lab</a> 
-  directed by <a href="https://beomjoonkim.github.io">Beomjoon Kim</a>.
-  I received my Bachelor’s Degree in Computer Science from 
-  <a href="http://ewha.ac.kr/">Ewha Womans University</a>.
-  I was fortunate to work with <a href="https://clvrai.com/web_lim/">Joseph Lim</a> and <a href="http://dyros.snu.ac.kr/team/jaeheung-park/">Jaeheung Park</a>.
-</p>
+    .section-intro {
+      color: #555;
+      margin: 0 0 6px 0;
+      font-size: 14px;
+    }
+    .section-note {
+      color: #888;
+      font-size: 13px;
+      margin: 0 0 16px 0;
+    }
 
-                <p style="text-align:center">
-                  <a href="mailto:jshcdi6658@gmail.com">Mail</a> &nbsp;/&nbsp;
-                  <!-- <a href="data/CV.pdf">CV</a> &nbsp;/&nbsp; -->
-                  <a href="https://github.com/JisuHann">Github</a> &nbsp;/&nbsp;
-                  <a href="https://www.linkedin.com/in/jisu-han-/">LinkedIn</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?hl=ko&user=WWg5SyQAAAAJ">Google Scholar</a>&nbsp;/&nbsp;
-                  <a href="https://x.com/jisu_han__">X</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:25%">
-                <a href="images/jisu.png"><img style="width:90%;max-width:100%;object-fit: cover; border-radius: 5%;" alt="profile photo" src="images/jisu.png" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
+    /* ── Paper / Project Items ── */
+    .item {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: flex-start;
+    }
+    .item:last-child {
+      border-bottom: none;
+    }
+    .item-img {
+      flex-shrink: 0;
+      width: 160px;
+    }
+    .item-img img {
+      width: 160px;
+      height: auto;
+      border-radius: 4px;
+    }
+    .item-text {
+      flex: 1;
+      min-width: 0;
+    }
 
+    .paper-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: #222;
+      line-height: 1.4;
+    }
+    .paper-authors {
+      font-size: 13px;
+      color: #555;
+      margin-top: 4px;
+    }
+    .paper-authors strong {
+      color: #333;
+    }
+    .paper-venue {
+      font-size: 13px;
+      color: #666;
+      margin-top: 3px;
+      font-style: italic;
+    }
+    .paper-venue .award {
+      color: #d04040;
+      font-weight: 600;
+      font-style: normal;
+    }
+    .paper-links {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .paper-links a {
+      font-size: 13px;
+      color: #2B9E8C;
+      padding: 1px 2px;
+      border-radius: 3px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .paper-links a:hover {
+      background: linear-gradient(135deg, #2B9E8C, #1D7A6A);
+      color: #fff;
+    }
+    .paper-desc {
+      font-size: 12px;
+      color: #777;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
 
-  <div class="navbar">
-    <button onclick="showSection('research')">Research</button>
-    <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('experience')">Experiences</button>
-    <!-- <button onclick="showSection('services')">Services</button> -->
-  </div>
-  
-     <div id="research" class="section active">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:0px 20px 0px 20px;width:100%;vertical-align:middle">
-                <p>My research interests lie in the intersection of robotics and machine learning. I am interested in developing foundation models for robotics that can generalize to new tasks and environments.</p>
-                <p> (* denotes equal contribution) </p>
-              </td>
-            </tr>
-          </tbody>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    /* ── Experience Section ── */
+    .exp-category {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2B9E8C;
+      margin: 24px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e0f0ec;
+    }
+    .exp-category:first-child {
+      margin-top: 0;
+    }
 
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/ota.png" alt="clean-usnob" width="160" height="90">
-              </td>
-              <td width="75%" valign="middle">
-                Option-aware Temporally Abstracted Value for Offline Goal-Conditioned Reinforcement Learning
-                <br>
-                Hongjoon Ahn*, Heewoong Choi*, <strong>Jisu Han*</strong>, Taesup Moon
-                <br>
-                <i>Neural Information Processing Systems (NeurIPS), 2025 <strong><span style="color: red;">Spotlight</span></strong></i>
-                <br>
-                <a href="https://arxiv.org/abs/2505.12737">Arxiv</a> 
-              </td>
-                <!-- <br>[<a href="data/CVPRW_2024_CR.pdf">Paper</a>][<a href="https://github.com/JisuHann/GoS">Github</a>]</p> -->
-              </td>
-            </tr>
+    .exp-item {
+      display: flex;
+      gap: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .exp-item:last-child {
+      border-bottom: none;
+    }
+    .exp-date {
+      flex-shrink: 0;
+      width: 160px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #666;
+      padding-top: 1px;
+    }
+    .exp-detail {
+      flex: 1;
+    }
+    .exp-detail .exp-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: #333;
+    }
+    .exp-detail .exp-org {
+      font-size: 13px;
+      color: #666;
+      font-style: italic;
+      margin-top: 2px;
+    }
+    .exp-detail .exp-desc {
+      font-size: 13px;
+      color: #777;
+      margin-top: 3px;
+    }
 
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/ham.png" alt="clean-usnob" width="160" height="80">
-              </td>
-              <td width="75%" valign="middle">
-                Hierarchical and Modular Network on Non-prehensile Manipulation in General Environments
-                <br>
-                Yoonyoung Cho*, Junhyek Han*, <strong>Jisu Han</strong>, Beomjoon Kim
-                <br>
-                <i>Robotics: Science and Systems (RSS), 2025</i>
-                <br>
-                <a href="https://www.roboticsproceedings.org/rss21/p154.pdf">Paper</a> / <a href="https://unicorn-hamnet.github.io">Project</a>
-              </td>
-                <!-- <br>[<a href="data/CVPRW_2024_CR.pdf">Paper</a>][<a href="https://github.com/JisuHann/GoS">Github</a>]</p> -->
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/GoS.png" alt="clean-usnob" width="160" height="80">
-              </td>
-              <td width="75%" valign="middle">
-                Adaptive visual abstraction via object token merging and pruning for efficient robot manipulation
-                <br>
-                <strong>Jisu Han</strong>
-                <br>
-                <i>CVPR Workshop (Causal and Object-Centric Representations for Robotics), 2024 <strong><span style="color: red;">Oral</span></strong></i>
-                <br>
-                <a href="data/CVPRW_2024_CR.pdf">Paper</a> / <a href="https://github.com/JisuHann/GoS">Github</a>
-              </td>
-            </tr>
+    /* ── Section transitions ── */
+    .section {
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/POMDPs.png" alt="clean-usnob" width="160" height="80">
-              </td>
-              <td width="75%" valign="middle">
-                Preference learning for guiding the tree search in continuous POMDPs
-                <br>
-                Jiyong Ahn, Sanghyeon Son, Dongryung Lee,  <strong>Jisu Han</strong>, Dongwon Son, and Beomjoon Kim.
-                <br>
-                <i>Conference on Robot Learnining (CoRL), 2023</i>
-                <br>
-                <a href="https://openreview.net/pdf?id=09UL1dCqf2n">Paper</a> / <a href="https://www.youtube.com/watch?v=sONwle96q-8">Video</a> / <a href="https://sites.google.com/view/preference-guided-pomcpow?usp=sharing">Project</a> / <a href="https://github.com/iMSquared/PGP">Github</a>
-              </td>
-            </tr>
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px 16px;
+      }
+      .bio {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+      .bio-photo {
+        width: 130px;
+        margin-bottom: 4px;
+      }
+      .name {
+        font-size: 26px;
+      }
+      .bio-text p {
+        font-size: 14px;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 0;
+      }
 
-          </tbody></table>
-    </div>
+      /* Tabs: scrollable on mobile */
+      .navbar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0;
+      }
+      .navbar::-webkit-scrollbar {
+        display: none;
+      }
+      .navbar button {
+        flex-shrink: 0;
+        padding: 10px 16px;
+        font-size: 14px;
+        /* larger touch target */
+        min-height: 44px;
+      }
 
-    <div id="projects" class="section">
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr>
-        <td style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images/chessteacher.png" alt="clean-usnob" width="160" height="80">
-        </td>
-        <td width="75%" valign="middle">
-          Real-world Chess Robot Teacher
-          <br>
-          <strong>Jisu Han</strong>, Chaehyun Song, Minjae Song, Hwancheol Kim, and Semin Ahn
-          <br>
-            <i>Real-world robotic teacher system capable of teaching chess in physical environments. Qwen3-VL-Thinking model for Chess reasoning, and Isaac-Gr00T for action reasoning. 2025 Fall Class Project</i>
-            <br>
-          <a href="https://chain-culotte-70e.notion.site/1-Real-world-Chess-Robot-Teacher-27ffb979596d81f4a366d3dfc53976bc?source=copy_link">Notion</a> / <a href="https://youtu.be/p1ADruJ302M?si=AuTkv1P1RxyiDSoP">Demo</a>
-        </td>
-        </tr>
+      /* Items: stack vertically */
+      .item {
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 0;
+      }
+      .item-img {
+        width: 100%;
+      }
+      .item-img img {
+        width: 100%;
+        max-width: 280px;
+        border-radius: 6px;
+      }
+      .paper-title {
+        font-size: 15px;
+      }
+      .paper-links {
+        gap: 8px;
+      }
+      .paper-links a {
+        font-size: 14px;
+        padding: 4px 6px;
+      }
 
-      <tr>
-        <td style="padding:20px;width:25%;vertical-align:middle">
-          <img src="images/wrasprobot.png" alt="clean-usnob" width="160" height="80">
-        </td>
-        <td width="75%" valign="middle">
-          WraspRobot: Bug-catching Robot
-          <br>
-          <strong>Jisu Han</strong>, Jaehoon Choi, Gunwoo Choi, and Dongwook Lee
-          <br>
-            <i>Huggingface LeRobot WorldWide Hackerton, 2025 <strong><span style="color: red;">Top 10 Finalist</span></strong>  among 3,000+ global participants</i>
-            <br>
-          <a href="https://huggingface.co/spaces/LeRobot-worldwide-hackathon/winners">Huggingface Winner space</a> / <a href=https://x.com/clementdelangue/status/1935041692220146035?s=46">X</a>
-        </td>
-        </tr>
-<!--             
-        </tr>
-        <tr>
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <img src="images/hybrid.png" alt="clean-usnob" width="160" height="80">
-          </td>
-          <td width="75%" valign="middle">
-            Hybrid-Space Diffusion for Task and Motion Planning with Offline RL
-            <br>
-            <strong>Jisu Han</strong>, Yoonyoung Cho, and Haewon Jung
-            <br>
-            <i>AI707: Advanced Topics in Deep Learning (Prof. Kimin Lee) project</i>
-            <br>
-            <small>TL;DR To resolve the downward refinement issues from bi-level planning in Task and Motion planning (TAMP), we adopt
-              hybrid-space diffusion model.</small>
-            <br>
-            <a href="https://general-bone-2b1.notion.site/AI707-Project-Hybrid-Space-Diffusion-for-Task-and-Motion-Planning-with-Offline-Data-ae60a49af358497b9abd775b26ce22b6">Project</a>
-          </td>
-          
-        </tr> -->
-
-        <tr>
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <img src="images/Untitled.png" alt="clean-usnob" width="160" height="80">
-          </td>
-          <td width="75%" valign="middle">
-            Clarifying the task: Identifying task from human videos as a representation
-            <br>
-            <strong>Jisu Han</strong> and Doohyun Lee
-            <br>
-            <i>AI611: Machine Learning for Robotics (Prof. Joseph Lim) project, 2023</i>
-            <br>
-            <small> TL;DR To learn a generalized reward function that can be utilized on reinforcement learning, we devise a representation that can effectively disentangle environment information and task information.</small>
-            <br>
-            <a href="https://general-bone-2b1.notion.site/Clarifying-the-task-Identifying-task-from-human-videos-as-a-representation-for-Robotics-d9e9de56af7c4430bec137a0ff87027b">Project</a>
-          </td>
-          
-        </tr>
-
-        <tr>
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <img src="images/MEME.png" alt="clean-usnob" width="160" height="80">
-          </td>
-          <td width="75%" valign="middle">
-            Cart MEME: Deep Learning Based Autonomous-Driving Cart
-            <br>
-            <strong>Jisu Han</strong>, Jiyoon Park, Chaewon Kim, and Sangsoo Park
-            <br>
-            <i>Korea Information Processing Society (KIPS), 2021</i>
-            <i></i> 
-            <br>
-            <a href="https://drive.google.com/file/d/1ag9G8vsFsSSmQ2D-LO98Xm0h-ufBH1wD/view?usp=sharing">Paper</a> / <a href=https://github.com/MEME-Phoenix"">Github</a>
-           </td>
-        </tr>
-
-        <tr>
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <img src="images/TheCodeEscape.png" alt="clean-usnob" width="160" height="80">
-          </td>
-          <td width="75%" valign="middle">
-            TheCodeEscape: VR room escape game based on Unity3D and Oculus
-            <br>
-            <strong>Jisu Han</strong>, Minyeong Hwang, and Seoungwoon Jung
-            <br>
-            <i>KAIST MadCamp Final Project, 2019</i>
-            <br>
-            <a href="https://github.com/JisuHann/TheCodeEscape">Github</a> / <a href="https://youtu.be/2lT4zi3lCCA?si=S1uLuR5EjhtQBN0d">Demo</a>
-          </td>
-        </tr>
-      </tbody></table>
-    </div>
-
-    <div id="services" class="section">
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      
-      <!-- <tr>
-        <td style="padding:20px;width:100%;vertical-align:middle">
-          <h3>Teaching Assistant</h3>
-          <ul style="list-style-type: none; padding-left: 0;">
-            <li>• AI611: Machine Learning for Robotics (Prof. Joseph Lim), KAIST, 2023</li>
-            <li>• AI502: Deep Learning (Prof. Jaesik Cho), KAIST, 2022</li>
-          </ul>
-        </td>
-      </tr> -->
-      <tr>
-        <td style="padding:20px;width:100%;vertical-align:middle">
-          <h3>Workshop & Seminar</h3>
-          <ul style="list-style-type: none; padding-left: 0;">
-            <li>• CVPR Workshop (Causal and Object-Centric Representations for Robotics), 2024 - <strong>Oral Presentation</strong></li>
-            <li>• KAIST AI Seminar Series, 2023</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody></table>
-    </div>
-
-    <div id="experience" class="section">
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr>
-  <td style="padding:10px;width:100%;vertical-align:middle">
-    <h4>Teaching Assistant</h4>
-  </td>
-</tr>
-
-<tr>
-  <td style="padding:10px;width:100%;vertical-align:middle">
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
-      <tr>
-        <td style="width:25%;vertical-align:top;padding-right:20px;">
-          <strong>Fall 2025</strong>
-        </td>
-        <td style="width:75%;vertical-align:top;">
-          <strong>M2608.002100 Advanced Deep Learning</strong><br>
-          <em>Seoul National University (Prof. Taesup Moon)</em><br>
-          <span style="font-size:100%; color:#555;">
-            Selected as an <strong>Outstanding Teaching Assistant</strong> for contributions to course operation,
-            student support, and project mentoring.
-          </span>
-        </td>
-      </tr>
-    </table>
-  </td>
-</tr>
-
-      
-      <tr>
-        <td style="padding:10px;width:100%;vertical-align:middle">
-          <h4>Research Experience</h4>
-        </td>
-      </tr>
-      
-      <tr>
-        <td style="padding:10px;width:100%;vertical-align:middle">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
-            <tr>
-              <td style="width:25%;vertical-align:top;padding-right:20px;">
-                <strong>Sep 2024 - Nov 2024</strong>
-              </td>
-              <td style="width:75%;vertical-align:top;">
-                <strong>Research Assistant, Cognitive Learning for Vision and Robotics Lab</strong><br>
-                <em>Korea Advanced Institute of Science and Technology (KAIST)</em><br>
-                • Research of analyzing the impact of data scaling on the performance of robotics policies
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      
-      <tr>
-        <td style="padding:10px;width:100%;vertical-align:middle">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
-            <tr>
-              <td style="width:25%;vertical-align:top;padding-right:20px;">
-                <strong>July 2021 - Aug 2022</strong>
-              </td>
-              <td style="width:75%;vertical-align:top;">
-                <strong>Research Intern, Intelligent Mobile Manipulation Lab</strong><br>
-                <em>Korea Advanced Institute of Science and Technology (KAIST)</em><br>
-                • Research on interactive perception
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      
-      <tr>
-        <td style="padding:10px;width:100%;vertical-align:middle">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
-            <tr>
-              <td style="width:25%;vertical-align:top;padding-right:20px;">
-                <strong>Dec 2020 - Aug 2021</strong>
-              </td>
-              <td style="width:75%;vertical-align:top;">
-                <strong>Research Intern, Dynamic Robotic Systems (DYROS) Lab</strong><br>
-                <em>Seoul National University</em><br>
-                • Developed a deep learning based grasp solution, published a domestic paper
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      
-      <tr>
-        <td style="padding:10px;width:100%;vertical-align:middle">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
-            <tr>
-              <td style="width:25%;vertical-align:top;padding-right:20px;">
-                <strong>May 2019 - July 2019</strong>
-              </td>
-              <td style="width:75%;vertical-align:top;">
-                <strong>Research Intern, Information Coding and Processing Lab</strong><br>
-                <em>Ewha Womans University</em><br>
-                • Developed a drowsy driving prevention system based on the driver's eye-tracking system using OpenCV.
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      
-    </tbody></table>
-    </div>
-
-
-  <script>
-    function showSection(id) {
-      console.log('Showing section:', id);
-      
-      // Remove active class from all buttons
-      const buttons = document.querySelectorAll('.navbar button');
-      buttons.forEach(button => {
-        button.classList.remove('active');
-      });
-      
-      // Add active class to clicked button
-      const clickedButton = event.target;
-      clickedButton.classList.add('active');
-      
-      // Hide all sections
-      const sections = document.querySelectorAll('.section');
-      console.log('Found sections:', sections.length);
-      sections.forEach(section => {
-        section.style.display = 'none';
-        section.classList.remove('active');
-        console.log('Hidden section:', section.id);
-      });
-      
-      // Show target section
-      const targetSection = document.getElementById(id);
-      if (targetSection) {
-        targetSection.style.display = 'block';
-        targetSection.classList.add('active');
-        console.log('Showed section:', id);
-      } else {
-        console.error('Section not found:', id);
+      /* Experience: stack */
+      .exp-item {
+        flex-direction: column;
+        gap: 2px;
+      }
+      .exp-date {
+        width: auto;
+        font-size: 12px;
+        color: #2B9E8C;
+      }
+      .exp-category {
+        font-size: 15px;
+        margin-top: 20px;
       }
     }
-    
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('Page loaded, showing research section');
-      
-      // Set research button as active initially
-      const researchButton = document.querySelector('.navbar button[onclick="showSection(\'research\')"]');
-      if (researchButton) {
-        researchButton.classList.add('active');
+
+    /* ── Tablet ── */
+    @media (min-width: 601px) and (max-width: 900px) {
+      .container {
+        padding: 24px 24px;
       }
-      
-      showSection('research');
-    });
-  </script>
+      .bio-photo {
+        width: 150px;
+      }
+      .item-img {
+        width: 140px;
+      }
+      .item-img img {
+        width: 140px;
+      }
+    }
+
+    /* ── Touch-friendly: active states ── */
+    @media (hover: none) {
+      .paper-links a:active {
+        background: #2B9E8C;
+        color: #fff;
+      }
+      .navbar button:active {
+        color: #2B9E8C;
+      }
+      a:active {
+        color: #1D7A6A;
+      }
+    }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- ── Bio ── -->
+      <div class="bio">
+        <div class="bio-text">
+          <h1 class="name">Jisu Han</h1>
+          <p>
+            Hi, I'm Jisu! I am a first-year Ph.D. student in the Interdisciplinary Program in Artificial Intelligence (IPAI) at
+            <a href="https://www.snu.ac.kr/">Seoul National University</a>, and a member of the
+            <a href="http://mindlab-snu.notion.site">M.IN.D Lab</a>, where I am fortunate to be advised by
+            <a href="https://scholar.google.com/citations?user=lQlioBoAAAAJ&hl=en">Taesup Moon</a>.
+          </p>
+          <p>
+            I obtained my Master's Degree in the Graduate School of AI at
+            <a href="https://www.kaist.ac.kr/en/">KAIST</a>, in the
+            <a href="https://imsquared.github.io">Humanoid Generalization Lab</a>
+            directed by <a href="https://beomjoonkim.github.io">Beomjoon Kim</a>.
+            I received my Bachelor's Degree in Computer Science from
+            <a href="http://ewha.ac.kr/">Ewha Womans University</a>.
+            I was fortunate to work with <a href="https://clvrai.com/web_lim/">Joseph Lim</a> and <a href="http://dyros.snu.ac.kr/team/jaeheung-park/">Jaeheung Park</a>.
+          </p>
+          <div class="links">
+            <a href="mailto:jshcdi6658@gmail.com">Mail</a> <span class="sep">/</span>
+            <a href="https://github.com/JisuHann">Github</a> <span class="sep">/</span>
+            <a href="https://www.linkedin.com/in/jisu-han-/">LinkedIn</a> <span class="sep">/</span>
+            <a href="https://scholar.google.com/citations?hl=ko&user=WWg5SyQAAAAJ">Google Scholar</a> <span class="sep">/</span>
+            <a href="https://x.com/jisu_han__">X</a>
+          </div>
+        </div>
+        <div class="bio-photo">
+          <a href="images/jisu.png"><img alt="Jisu Han" src="images/jisu.png"></a>
+        </div>
+      </div>
+
+      <!-- ── Tabs ── -->
+      <div class="navbar">
+        <button class="active" onclick="showSection('research', this)">Research</button>
+        <button onclick="showSection('projects', this)">Projects</button>
+        <button onclick="showSection('experience', this)">Experiences</button>
+      </div>
+
+      <!-- ════════════════ Research ════════════════ -->
+      <div id="research" class="section active">
+        <p class="section-intro">My research interests lie in the intersection of robotics and machine learning. I am interested in developing foundation models for robotics that can generalize to new tasks and environments.</p>
+        <p class="section-note">* denotes equal contribution</p>
+
+        <div class="item">
+          <div class="item-img"><img src="images/ota.png" alt="OTA"></div>
+          <div class="item-text">
+            <div class="paper-title">Option-aware Temporally Abstracted Value for Offline Goal-Conditioned Reinforcement Learning</div>
+            <div class="paper-authors">Hongjoon Ahn*, Heewoong Choi*, <strong>Jisu Han*</strong>, Taesup Moon</div>
+            <div class="paper-venue">Neural Information Processing Systems (NeurIPS), 2025 <span class="award">Spotlight</span></div>
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2505.12737">Arxiv</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-img"><img src="images/ham.png" alt="HAMNet"></div>
+          <div class="item-text">
+            <div class="paper-title">Hierarchical and Modular Network on Non-prehensile Manipulation in General Environments</div>
+            <div class="paper-authors">Yoonyoung Cho*, Junhyek Han*, <strong>Jisu Han</strong>, Beomjoon Kim</div>
+            <div class="paper-venue">Robotics: Science and Systems (RSS), 2025</div>
+            <div class="paper-links">
+              <a href="https://www.roboticsproceedings.org/rss21/p154.pdf">Paper</a>
+              <a href="https://unicorn-hamnet.github.io">Project</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-img"><img src="images/GoS.png" alt="GoS"></div>
+          <div class="item-text">
+            <div class="paper-title">Adaptive visual abstraction via object token merging and pruning for efficient robot manipulation</div>
+            <div class="paper-authors"><strong>Jisu Han</strong></div>
+            <div class="paper-venue">CVPR Workshop (Causal and Object-Centric Representations for Robotics), 2024 <span class="award">Oral</span></div>
+            <div class="paper-links">
+              <a href="data/CVPRW_2024_CR.pdf">Paper</a>
+              <a href="https://github.com/JisuHann/GoS">Github</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-img"><img src="images/POMDPs.png" alt="POMDPs"></div>
+          <div class="item-text">
+            <div class="paper-title">Preference learning for guiding the tree search in continuous POMDPs</div>
+            <div class="paper-authors">Jiyong Ahn, Sanghyeon Son, Dongryung Lee, <strong>Jisu Han</strong>, Dongwon Son, and Beomjoon Kim</div>
+            <div class="paper-venue">Conference on Robot Learning (CoRL), 2023</div>
+            <div class="paper-links">
+              <a href="https://openreview.net/pdf?id=09UL1dCqf2n">Paper</a>
+              <a href="https://www.youtube.com/watch?v=sONwle96q-8">Video</a>
+              <a href="https://sites.google.com/view/preference-guided-pomcpow?usp=sharing">Project</a>
+              <a href="https://github.com/iMSquared/PGP">Github</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════ Projects ════════════════ -->
+      <div id="projects" class="section">
+
+        <div class="item">
+          <div class="item-img"><img src="images/chessteacher.png" alt="Chess Robot Teacher"></div>
+          <div class="item-text">
+            <div class="paper-title">Real-world Chess Robot Teacher</div>
+            <div class="paper-authors"><strong>Jisu Han</strong>, Chaehyun Song, Minjae Song, Hwancheol Kim, and Semin Ahn</div>
+            <div class="paper-venue">2025 Fall Class Project</div>
+            <div class="paper-desc">Real-world robotic teacher system capable of teaching chess in physical environments. Qwen3-VL-Thinking model for Chess reasoning, and Isaac-Gr00T for action reasoning.</div>
+            <div class="paper-links">
+              <a href="https://chain-culotte-70e.notion.site/1-Real-world-Chess-Robot-Teacher-27ffb979596d81f4a366d3dfc53976bc?source=copy_link">Notion</a>
+              <a href="https://youtu.be/p1ADruJ302M?si=AuTkv1P1RxyiDSoP">Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-img"><img src="images/wrasprobot.png" alt="WraspRobot"></div>
+          <div class="item-text">
+            <div class="paper-title">WraspRobot: Bug-catching Robot</div>
+            <div class="paper-authors"><strong>Jisu Han</strong>, Jaehoon Choi, Gunwoo Choi, and Dongwook Lee</div>
+            <div class="paper-venue">Huggingface LeRobot WorldWide Hackathon, 2025 <span class="award">Top 10 Finalist</span> among 3,000+ global participants</div>
+            <div class="paper-links">
+              <a href="https://huggingface.co/spaces/LeRobot-worldwide-hackathon/winners">Huggingface Winner Space</a>
+              <a href="https://x.com/clementdelangue/status/1935041692220146035?s=46">X</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-img"><img src="images/Untitled.png" alt="Clarifying the task"></div>
+          <div class="item-text">
+            <div class="paper-title">Clarifying the task: Identifying task from human videos as a representation</div>
+            <div class="paper-authors"><strong>Jisu Han</strong> and Doohyun Lee</div>
+            <div class="paper-venue">AI611: Machine Learning for Robotics (Prof. Joseph Lim) project, 2023</div>
+            <div class="paper-desc">To learn a generalized reward function that can be utilized on reinforcement learning, we devise a representation that can effectively disentangle environment information and task information.</div>
+            <div class="paper-links">
+              <a href="https://general-bone-2b1.notion.site/Clarifying-the-task-Identifying-task-from-human-videos-as-a-representation-for-Robotics-d9e9de56af7c4430bec137a0ff87027b">Project</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-img"><img src="images/MEME.png" alt="Cart MEME"></div>
+          <div class="item-text">
+            <div class="paper-title">Cart MEME: Deep Learning Based Autonomous-Driving Cart</div>
+            <div class="paper-authors"><strong>Jisu Han</strong>, Jiyoon Park, Chaewon Kim, and Sangsoo Park</div>
+            <div class="paper-venue">Korea Information Processing Society (KIPS), 2021</div>
+            <div class="paper-links">
+              <a href="https://drive.google.com/file/d/1ag9G8vsFsSSmQ2D-LO98Xm0h-ufBH1wD/view?usp=sharing">Paper</a>
+              <a href="https://github.com/MEME-Phoenix">Github</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-img"><img src="images/TheCodeEscape.png" alt="TheCodeEscape"></div>
+          <div class="item-text">
+            <div class="paper-title">TheCodeEscape: VR room escape game based on Unity3D and Oculus</div>
+            <div class="paper-authors"><strong>Jisu Han</strong>, Minyeong Hwang, and Seoungwoon Jung</div>
+            <div class="paper-venue">KAIST MadCamp Final Project, 2019</div>
+            <div class="paper-links">
+              <a href="https://github.com/JisuHann/TheCodeEscape">Github</a>
+              <a href="https://youtu.be/2lT4zi3lCCA?si=S1uLuR5EjhtQBN0d">Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════ Experience ════════════════ -->
+      <div id="experience" class="section">
+
+        <div class="exp-category">Teaching Assistant</div>
+
+        <div class="exp-item">
+          <div class="exp-date">Fall 2025</div>
+          <div class="exp-detail">
+            <div class="exp-title">M2608.002100 Advanced Deep Learning</div>
+            <div class="exp-org">Seoul National University (Prof. Taesup Moon)</div>
+            <div class="exp-desc">Selected as an <strong>Outstanding Teaching Assistant</strong> for contributions to course operation, student support, and project mentoring.</div>
+          </div>
+        </div>
+
+        <div class="exp-category">Research Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-date">Sep 2024 &ndash; Nov 2024</div>
+          <div class="exp-detail">
+            <div class="exp-title">Research Assistant, Cognitive Learning for Vision and Robotics Lab</div>
+            <div class="exp-org">Korea Advanced Institute of Science and Technology (KAIST)</div>
+            <div class="exp-desc">Research of analyzing the impact of data scaling on the performance of robotics policies</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Jul 2021 &ndash; Aug 2022</div>
+          <div class="exp-detail">
+            <div class="exp-title">Research Intern, Intelligent Mobile Manipulation Lab</div>
+            <div class="exp-org">Korea Advanced Institute of Science and Technology (KAIST)</div>
+            <div class="exp-desc">Research on interactive perception</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Dec 2020 &ndash; Aug 2021</div>
+          <div class="exp-detail">
+            <div class="exp-title">Research Intern, Dynamic Robotic Systems (DYROS) Lab</div>
+            <div class="exp-org">Seoul National University</div>
+            <div class="exp-desc">Developed a deep learning based grasp solution, published a domestic paper</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">May 2019 &ndash; Jul 2019</div>
+          <div class="exp-detail">
+            <div class="exp-title">Research Intern, Information Coding and Processing Lab</div>
+            <div class="exp-org">Ewha Womans University</div>
+            <div class="exp-desc">Developed a drowsy driving prevention system based on the driver's eye-tracking system using OpenCV</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Footer ── -->
+      <footer style="text-align:center; padding:30px 0 10px; margin-top:20px; border-top:1px solid #eee; font-size:12px; color:#aaa;">
+        &copy; 2026 Jisu Han. All rights reserved.
+      </footer>
+
+    </div><!-- /container -->
+
+    <script>
+      const tabs = ['research', 'projects', 'experience'];
+      let currentTab = 0;
+
+      function showSection(id, btn) {
+        // Update current tab index
+        currentTab = tabs.indexOf(id);
+
+        // Update active tab button
+        const buttons = document.querySelectorAll('.navbar button');
+        buttons.forEach(b => b.classList.remove('active'));
+        if (btn) {
+          btn.classList.add('active');
+        } else {
+          buttons[currentTab].classList.add('active');
+        }
+
+        // Toggle sections with animation
+        document.querySelectorAll('.section').forEach(s => {
+          s.style.display = 'none';
+          s.classList.remove('active');
+        });
+
+        const target = document.getElementById(id);
+        if (target) {
+          target.style.display = 'block';
+          target.classList.add('active');
+        }
+      }
+
+      // Swipe gesture support for mobile
+      (function() {
+        let startX = 0;
+        let startY = 0;
+
+        document.addEventListener('touchstart', function(e) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+          const dx = e.changedTouches[0].clientX - startX;
+          const dy = e.changedTouches[0].clientY - startY;
+
+          // Only trigger if horizontal swipe is dominant and long enough
+          if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            if (dx < 0 && currentTab < tabs.length - 1) {
+              // Swipe left → next tab
+              showSection(tabs[currentTab + 1]);
+            } else if (dx > 0 && currentTab > 0) {
+              // Swipe right → prev tab
+              showSection(tabs[currentTab - 1]);
+            }
+          }
+        }, { passive: true });
+      })();
+    </script>
   </body>
 </html>
