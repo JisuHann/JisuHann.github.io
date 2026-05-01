@@ -5,12 +5,22 @@
     <title>Jisu Han</title>
     <meta name="author" content="Jisu Han">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/avocado_1f951.png" type="image/png">
+    <link rel="icon" href="images/favicon-j.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
     <style>
+    <style>
+    /*
+      Palette: Indigo-Navy + Powder Sky + Deep Crimson
+      --navy:    #1E3058  (indigo-navy anchor)
+      --powder:  #4A8DB5  (slightly more saturated — readable but not generic)
+      --sky-tint:#D6EAFA  (light sky for borders)
+      --crimson: #9B2335  (deep crimson awards)
+      Sharpness: pure white bg + strong typography + pill buttons + left-bar accent
+    */
+
     * { box-sizing: border-box; }
 
     body, p, a, td, th, tr, h1, h2, h3, h4, strong, em, span, div, button, input {
@@ -19,7 +29,7 @@
 
     body {
       background-color: #ffffff;
-      color: #1C1C1C;
+      color: #111111;
       font-size: 15px;
       line-height: 1.6;
       margin: 0;
@@ -27,11 +37,11 @@
     }
 
     a {
-      color: #24A795;
+      color: #4A8DB5;
       text-decoration: none;
     }
     a:hover {
-      color: #147065;
+      color: #1E3058;
     }
 
     .container {
@@ -47,9 +57,7 @@
       gap: 30px;
       margin-bottom: 10px;
     }
-    .bio-text {
-      flex: 1;
-    }
+    .bio-text { flex: 1; }
     .bio-photo {
       flex-shrink: 0;
       width: 180px;
@@ -61,26 +69,25 @@
 
     .name {
       font-size: 32px;
-      font-weight: 600;
-      color: #1B2A4A;
+      font-weight: 700;
+      color: #1E3058;
       margin: 0 0 12px 0;
       padding: 0;
+      letter-spacing: -0.4px;
     }
 
     .bio-text p {
       margin: 0 0 10px 0;
-      color: #333;
+      color: #333333;
     }
 
     .links {
       margin-top: 14px;
       font-size: 14px;
     }
-    .links a {
-      margin-right: 4px;
-    }
+    .links a { margin-right: 4px; }
     .links .sep {
-      color: #ccc;
+      color: #C8DCF0;
       margin: 0 2px;
     }
 
@@ -88,30 +95,30 @@
     .navbar {
       display: flex;
       gap: 0;
-      border-bottom: 2px solid #e8e8e8;
+      border-bottom: 2px solid #DDE8F4;
       margin-bottom: 0;
       padding: 0;
     }
     .navbar button {
       background: none;
       border: none;
-      border-bottom: 2px solid transparent;
+      border-bottom: 3px solid transparent;
       margin-bottom: -2px;
       padding: 10px 20px;
       cursor: pointer;
       font-size: 15px;
       font-weight: 500;
-      color: #999;
+      color: #999999;
       font-family: inherit;
       transition: color 0.2s, border-color 0.2s;
     }
     .navbar button:hover {
-      color: #24A795;
+      color: #4A8DB5;
     }
     .navbar button.active {
-      color: #1B2A4A;
-      font-weight: 600;
-      border-bottom-color: #24A795;
+      color: #1E3058;
+      font-weight: 700;
+      border-bottom-color: #1E3058;
     }
 
     /* ── Sections ── */
@@ -124,12 +131,12 @@
     }
 
     .section-intro {
-      color: #444;
+      color: #333333;
       margin: 0 0 6px 0;
       font-size: 14px;
     }
     .section-note {
-      color: #888;
+      color: #8A9AB0;
       font-size: 13px;
       margin: 0 0 16px 0;
     }
@@ -139,12 +146,10 @@
       display: flex;
       gap: 20px;
       padding: 18px 0;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid #DDE8F4;
       align-items: flex-start;
     }
-    .item:last-child {
-      border-bottom: none;
-    }
+    .item:last-child { border-bottom: none; }
     .item-img {
       flex-shrink: 0;
       width: 160px;
@@ -160,119 +165,116 @@
     }
 
     .paper-title {
-      font-weight: 450;
+      font-weight: 600;
       font-size: 14px;
-      color: #1C1C1C;
+      color: #111111;
       line-height: 1.4;
     }
     .paper-authors {
       font-size: 13px;
-      color: #444;
+      color: #444444;
       margin-top: 4px;
     }
     .paper-authors strong {
-      color: #1C1C1C;
-      font-weight: 550;
+      color: #1E3058;
+      font-weight: 700;
     }
     .paper-venue {
       font-size: 13px;
-      color: #666;
+      color: #666666;
       margin-top: 3px;
       font-style: italic;
     }
     .paper-venue .award {
-      color: #C0392B;
-      font-weight: 600;
+      color: #9B2335;
+      font-weight: 700;
       font-style: normal;
     }
     .paper-links {
-      margin-top: 6px;
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
     .paper-links a {
-      font-size: 13px;
-      color: #24A795;
-      padding: 1px 2px;
-      border-radius: 3px;
-      transition: background 0.15s, color 0.15s;
+      font-size: 12px;
+      font-weight: 500;
+      color: #4A8DB5;
+      background: transparent;
+      border: 1px solid #B8D4EA;
+      padding: 2px 9px;
+      border-radius: 20px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
     .paper-links a:hover {
-      background: linear-gradient(135deg, #24A795, #147065);
-      color: #fff;
+      background: #1E3058;
+      border-color: #1E3058;
+      color: #ffffff;
     }
     .paper-desc {
       font-size: 12px;
-      color: #777;
+      color: #777777;
       margin-top: 4px;
       line-height: 1.5;
     }
 
     /* ── Experience Section ── */
     .exp-category {
-      font-size: 16px;
-      font-weight: 600;
-      color: #24A795;
-      margin: 24px 0 12px 0;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #B0E8D8;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1E3058;
+      margin: 28px 0 12px 0;
+      padding: 6px 10px;
+      border-left: 3px solid #1E3058;
+      background: linear-gradient(90deg, #EEF4FB 0%, #ffffff 80%);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-    .exp-category:first-child {
-      margin-top: 0;
-    }
+    .exp-category:first-child { margin-top: 0; }
 
     .exp-item {
       display: flex;
       gap: 20px;
       padding: 10px 0;
-      border-bottom: 1px solid #f5f5f5;
+      border-bottom: 1px solid #DDE8F4;
     }
-    .exp-item:last-child {
-      border-bottom: none;
-    }
+    .exp-item:last-child { border-bottom: none; }
     .exp-date {
       flex-shrink: 0;
       width: 160px;
       font-size: 13px;
       font-weight: 600;
-      color: #666;
+      color: #8A9AB0;
       padding-top: 1px;
     }
-    .exp-detail {
-      flex: 1;
-    }
+    .exp-detail { flex: 1; }
     .exp-detail .exp-title {
       font-weight: 600;
       font-size: 14px;
-      color: #1C1C1C;
+      color: #111111;
     }
     .exp-detail .exp-org {
       font-size: 13px;
-      color: #666;
+      color: #666666;
       font-style: italic;
       margin-top: 2px;
     }
     .exp-detail .exp-desc {
       font-size: 13px;
-      color: #777;
+      color: #777777;
       margin-top: 3px;
     }
 
     /* ── Section transitions ── */
-    .section {
-      animation: fadeIn 0.25s ease;
-    }
+    .section { animation: fadeIn 0.25s ease; }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     /* ── Responsive ── */
     @media (max-width: 600px) {
-      .container {
-        padding: 20px 16px;
-      }
+      .container { padding: 20px 16px; }
       .bio {
         flex-direction: column-reverse;
         align-items: center;
@@ -282,12 +284,8 @@
         width: 130px;
         margin-bottom: 4px;
       }
-      .name {
-        font-size: 26px;
-      }
-      .bio-text p {
-        font-size: 14px;
-      }
+      .name { font-size: 26px; }
+      .bio-text p { font-size: 14px; }
       .links {
         display: flex;
         flex-wrap: wrap;
@@ -295,50 +293,38 @@
         gap: 4px 0;
       }
 
-      /* Tabs: scrollable on mobile */
       .navbar {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 0;
       }
-      .navbar::-webkit-scrollbar {
-        display: none;
-      }
+      .navbar::-webkit-scrollbar { display: none; }
       .navbar button {
         flex-shrink: 0;
         padding: 10px 16px;
         font-size: 14px;
-        /* larger touch target */
         min-height: 44px;
       }
 
-      /* Items: stack vertically */
       .item {
         flex-direction: column;
         gap: 10px;
         padding: 14px 0;
       }
-      .item-img {
-        width: 100%;
-      }
+      .item-img { width: 100%; }
       .item-img img {
         width: 100%;
         max-width: 280px;
         border-radius: 6px;
       }
-      .paper-title {
-        font-size: 15px;
-      }
-      .paper-links {
-        gap: 8px;
-      }
+      .paper-title { font-size: 15px; }
+      .paper-links { gap: 8px; }
       .paper-links a {
-        font-size: 14px;
-        padding: 4px 6px;
+        font-size: 13px;
+        padding: 4px 12px;
       }
 
-      /* Experience: stack */
       .exp-item {
         flex-direction: column;
         gap: 2px;
@@ -346,42 +332,27 @@
       .exp-date {
         width: auto;
         font-size: 12px;
-        color: #24A795;
+        color: #4A8DB5;
       }
-      .exp-category {
-        font-size: 15px;
-        margin-top: 20px;
-      }
+      .exp-category { margin-top: 20px; }
     }
 
     /* ── Tablet ── */
     @media (min-width: 601px) and (max-width: 900px) {
-      .container {
-        padding: 24px 24px;
-      }
-      .bio-photo {
-        width: 150px;
-      }
-      .item-img {
-        width: 140px;
-      }
-      .item-img img {
-        width: 140px;
-      }
+      .container { padding: 24px 24px; }
+      .bio-photo { width: 150px; }
+      .item-img { width: 140px; }
+      .item-img img { width: 140px; }
     }
 
-    /* ── Touch-friendly: active states ── */
+    /* ── Touch-friendly ── */
     @media (hover: none) {
       .paper-links a:active {
-        background: #24A795;
+        background: #4A8DB5;
         color: #fff;
       }
-      .navbar button:active {
-        color: #24A795;
-      }
-      a:active {
-        color: #147065;
-      }
+      .navbar button:active { color: #4A8DB5; }
+      a:active { color: #1E3058; }
     }
     </style>
   </head>
