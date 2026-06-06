@@ -218,6 +218,160 @@
       line-height: 1.5;
     }
 
+    /* ── Research Vision (narrative — the Research tab's content) ── */
+    .vision-thesis {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #333333;
+      margin: 0 0 14px 0;
+    }
+    .vision-thesis strong { color: #1E3058; }
+
+    /* ── Humanoid cognition goal, split: aspiration text ↔ Detroit: Become Human video ── */
+    .goal-split {
+      margin: 22px 0 0 0;
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .goal-split-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+    .goal-split-col .eg-tag {
+      font-size: 16.9px;
+      font-weight: 700;
+      color: #1E3058;
+    }
+    .goal-split-col .eg-desc {
+      font-size: 12px;
+      color: #555555;
+      line-height: 1.6;
+    }
+    .goal-collage {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .gc-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 4px;
+      border-radius: 8px;
+      background: #EEF4FB;
+      font-size: 22px;
+    }
+    .gc-tile small {
+      font-size: 9.5px;
+      color: #777777;
+    }
+    .goal-split-video {
+      gap: 6px;
+    }
+    .video-embed {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000000;
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      font-size: 10.5px;
+      color: #999999;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .goal-split { flex-direction: column; }
+    }
+
+    /* ── Loop diagram (between the two vision paragraphs) — three equal cards, like the original vision cards ── */
+    .loop-dia {
+      display: flex;
+      gap: 12px;
+      margin: 6px 0 18px 0;
+    }
+    .loop-dia .ld-card {
+      flex: 1;
+      border: 1px solid #DDE8F4;
+      border-radius: 6px;
+      padding: 10px 12px;
+      background: #ffffff;
+    }
+    .loop-dia .ld-card.c-rep    { border-top: 2px solid #1E3058; }
+    .loop-dia .ld-card.c-ground { border-top: 2px solid #4A8DB5; }
+    .loop-dia .ld-card.c-update { border-top: 2px solid #9B2335; }
+    .loop-dia .ld-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .loop-dia .c-rep    .ld-title { color: #1E3058; }
+    .loop-dia .c-ground .ld-title { color: #4A8DB5; }
+    .loop-dia .c-update .ld-title { color: #9B2335; }
+    .loop-dia .ld-desc {
+      font-size: 11.5px;
+      color: #777777;
+      line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+      .loop-dia { flex-direction: column; }
+    }
+
+    /* ── Thesis-axis tags on publication cards ── */
+    .thesis-tags {
+      margin-top: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0 7px;
+    }
+    .thesis-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+    .thesis-tag.axis.t-rep    { color: #1E3058; background: #E4ECF7; }
+    .thesis-tag.axis.t-ground { color: #2E6B8F; background: #DCEEF7; }
+    .thesis-tag.axis.t-update { color: #9B2335; background: #F7E3E6; }
+    .thesis-tag.modality {
+      color: #8A9AB0;
+      font-weight: 600;
+      background: none;
+      padding: 2px 0;
+      position: relative;
+    }
+    .thesis-tag.modality:not(:last-child)::after {
+      content: '·';
+      margin-left: 7px;
+      color: #C8DCF0;
+    }
+    .thesis-tags .tag-sep {
+      color: #C8DCF0;
+      font-size: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .vision-cards { flex-direction: column; }
+    }
+
     /* ── Experience Section ── */
     .exp-category {
       font-size: 13px;
@@ -395,13 +549,60 @@
       <!-- ── Tabs ── -->
       <div class="navbar">
         <button class="active" onclick="showSection('research', this)">Research</button>
+        <button onclick="showSection('publications', this)">Publications</button>
         <button onclick="showSection('projects', this)">Projects</button>
         <button onclick="showSection('experience', this)">Experiences</button>
       </div>
 
       <!-- ════════════════ Research ════════════════ -->
       <div id="research" class="section active">
-        <p class="section-intro">My research interests lie in the intersection of robotics and machine learning. I am interested in developing foundation models for robotics that can generalize to new tasks and environments.</p>
+        <!-- ── Research Vision ── -->
+        <p class="vision-thesis">
+          The future I imagine looks like the coexistence portrayed in <a href="https://en.wikipedia.org/wiki/Detroit:_Become_Human" target="_blank" rel="noopener">Detroit: Become Human</a> — robots that don't just follow commands, but live alongside us, reading a room and adjusting as a person would. By <strong>skill</strong> here I mean an abstraction over how an agent gets something done — not a single fixed motion, but something that can be represented, grounded in a situation, and changed when it doesn't work. Cognitive science describes human skill this way too: under <a href="https://en.wikipedia.org/wiki/Schema_(psychology)#Motor_schemas" target="_blank" rel="noopener">schema theory</a>, a person reusing a "carry this" skill never repeats the same motion — they hold a flexible schema, read the context, and adjust, or fail and adjust the schema itself. <strong>I want robots to hold skills the same way: not as fixed scripts, but as abstractions that are represented, grounded in context, and updated through experience.</strong> Concretely, I study how agents <strong>represent</strong>, <strong>ground</strong>, and <strong>update</strong> skills along this loop.
+        </p>
+
+        <div class="loop-dia">
+          <div class="ld-card c-rep">
+            <div class="ld-title">① Representation</div>
+            <div class="ld-desc">What is a skill made of? — language, trajectory, policy, effect</div>
+          </div>
+          <div class="ld-card c-ground">
+            <div class="ld-title">② Grounding</div>
+            <div class="ld-desc">Does the skill still hold beyond where it was learned — in a new context, under safety constraints, over a long horizon?</div>
+          </div>
+          <div class="ld-card c-update">
+            <div class="ld-title">③ Update</div>
+            <div class="ld-desc">When a skill fails or breaks a constraint, can the agent tell on its own — and refine it, add a missing one, or drop one that no longer earns its place?</div>
+          </div>
+        </div>
+
+        <p class="vision-thesis">
+          I look at how that plays out unevenly across LLMs, VLMs, and VLAs, and ask how their strengths can cover one another's gaps: LLMs and VLMs each handle part of the loop — representing and updating in language, or grounding in what's seen — but neither has to act, or live with the consequences of failing. VLA is where it becomes one piece: a single system that must represent, ground, <em>and</em> update together, in real time, under real physical consequence — <strong>the loop, embodied</strong>.
+        </p>
+
+        <div class="goal-split">
+          <div class="goal-split-col">
+            <span class="eg-tag">🤖 Humanoid cognition</span>
+            <span class="eg-desc">where I see this heading — a body that thinks and adapts for itself, sharing the spaces we live and work in.</span>
+            <div class="goal-collage">
+              <span class="gc-tile">🏠<small>household</small></span>
+              <span class="gc-tile">🏥<small>hospital</small></span>
+              <span class="gc-tile">📦<small>warehouse</small></span>
+              <span class="gc-tile">🚀<small>space</small></span>
+            </div>
+          </div>
+          <div class="goal-split-col goal-split-video">
+            <div class="video-embed">
+              <iframe src="https://www.youtube.com/embed/_gJtihSt6a4?start=17" title="Detroit: Become Human" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <span class="video-caption">Detroit: Become Human — the coexistence I imagine</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════ Publications ════════════════ -->
+      <div id="publications" class="section">
+        <p class="section-intro">Each paper below is tagged by where it sits on that loop.</p>
         <p class="section-note">* denotes equal contribution</p>
 
         <div class="item">
@@ -410,6 +611,7 @@
             <div class="paper-title">Option-aware Temporally Abstracted Value for Offline Goal-Conditioned Reinforcement Learning</div>
             <div class="paper-authors">Hongjoon Ahn*, Heewoong Choi*, <strong>Jisu Han*</strong>, Taesup Moon</div>
             <div class="paper-venue">Neural Information Processing Systems (NeurIPS), 2025 <span class="award">Spotlight</span></div>
+            <div class="thesis-tags"><span class="thesis-tag axis t-rep">Representation</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
               <a href="https://arxiv.org/abs/2505.12737">Arxiv</a>
             </div>
@@ -422,6 +624,7 @@
             <div class="paper-title">Hierarchical and Modular Network on Non-prehensile Manipulation in General Environments</div>
             <div class="paper-authors">Yoonyoung Cho*, Junhyek Han*, <strong>Jisu Han</strong>, Beomjoon Kim</div>
             <div class="paper-venue">Robotics: Science and Systems (RSS), 2025</div>
+            <div class="thesis-tags"><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag axis t-rep">Representation</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
               <a href="https://www.roboticsproceedings.org/rss21/p154.pdf">Paper</a>
               <a href="https://unicorn-hamnet.github.io">Project</a>
@@ -435,6 +638,7 @@
             <div class="paper-title">Adaptive visual abstraction via object token merging and pruning for efficient robot manipulation</div>
             <div class="paper-authors"><strong>Jisu Han</strong></div>
             <div class="paper-venue">CVPR Workshop (Causal and Object-Centric Representations for Robotics), 2024 <span class="award">Oral</span></div>
+            <div class="thesis-tags"><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag modality">Vision</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
               <a href="data/CVPRW_2024_CR.pdf">Paper</a>
               <a href="https://github.com/JisuHann/GoS">Github</a>
@@ -468,6 +672,7 @@
             <div class="paper-authors"><strong>Jisu Han</strong>, Chaehyun Song, Minjae Song, Hwancheol Kim, and Semin Ahn</div>
             <div class="paper-venue">2025 Fall Class Project</div>
             <div class="paper-desc">Real-world robotic teacher system capable of teaching chess in physical environments. Qwen3-VL-Thinking model for Chess reasoning, and Isaac-Gr00T for action reasoning.</div>
+            <div class="thesis-tags"><span class="thesis-tag axis t-rep">Representation</span><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag modality">Language</span><span class="thesis-tag modality">Vision</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
               <a href="https://chain-culotte-70e.notion.site/1-Real-world-Chess-Robot-Teacher-27ffb979596d81f4a366d3dfc53976bc?source=copy_link">Notion</a>
               <a href="https://youtu.be/p1ADruJ302M?si=AuTkv1P1RxyiDSoP">Demo</a>
@@ -590,7 +795,7 @@
     </div><!-- /container -->
 
     <script>
-      const tabs = ['research', 'projects', 'experience'];
+      const tabs = ['research', 'publications', 'projects', 'experience'];
       let currentTab = 0;
 
       function showSection(id, btn) {
