@@ -203,6 +203,11 @@
       font-weight: 700;
       font-style: normal;
     }
+    .paper-venue .status {
+      color: #7FA0B8;
+      font-weight: 700;
+      font-style: normal;
+    }
     .paper-links {
       margin-top: 8px;
       display: flex;
@@ -223,6 +228,46 @@
       background: #2A5C9A;
       border-color: #2A5C9A;
       color: #ffffff;
+    }
+    .paper-tldr {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #555555;
+    }
+    .paper-links .paper-tldr {
+      margin-top: 0;
+    }
+    .paper-links .paper-tldr[open] {
+      flex-basis: 100%;
+    }
+    .paper-tldr summary {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      color: #2A5C9A;
+      font-weight: 700;
+      border: 1px solid #BFDCEC;
+      border-radius: 20px;
+      padding: 2px 9px;
+      list-style: none;
+      user-select: none;
+    }
+    .paper-tldr summary::-webkit-details-marker {
+      display: none;
+    }
+    .paper-tldr summary::after {
+      content: '+';
+      margin-left: 6px;
+      color: #7FA0B8;
+      font-weight: 700;
+    }
+    .paper-tldr[open] summary::after {
+      content: '-';
+    }
+    .paper-tldr p {
+      margin: 6px 0 0 0;
+      line-height: 1.5;
+      color: #555555;
     }
     .paper-desc {
       font-size: 12px;
@@ -619,6 +664,22 @@
         <p class="section-note">* denotes equal contribution</p>
 
         <div class="item">
+          <div class="item-img"><img src="images/safehri-nav.png" alt="SafeHRI-Nav"></div>
+          <div class="item-text">
+            <div class="paper-title">SafeHRI-Nav: A Context-Aware Low-Level Safe Navigation Benchmark for Human-Robot Interaction</div>
+            <div class="paper-authors">Authors anonymized during review</div>
+            <div class="paper-venue"><span class="status">In submission</span></div>
+            <div class="thesis-tags"><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag modality">Vision</span><span class="thesis-tag modality">Robot</span></div>
+            <div class="paper-links">
+              <details class="paper-tldr">
+                <summary>TL;DR</summary>
+                <p>Benchmarks whether foundation-model robot policies adjust low-level navigation to safety context. It uses matched scenes where obstacle semantics or safety demand changes, exposing failures like treating a baby too similarly to a rigid object.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
           <div class="item-img"><img src="images/ota.png" alt="OTA"></div>
           <div class="item-text">
             <div class="paper-title">Option-aware Temporally Abstracted Value for Offline Goal-Conditioned Reinforcement Learning</div>
@@ -626,6 +687,10 @@
             <div class="paper-venue">Neural Information Processing Systems (NeurIPS), 2025 <span class="award">Spotlight</span></div>
             <div class="thesis-tags"><span class="thesis-tag axis t-rep">Representation</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
+              <details class="paper-tldr">
+                <summary>TL;DR</summary>
+                <p>Introduces option-aware, temporally abstracted value learning for offline goal-conditioned RL. By reasoning over options instead of only primitive actions, the agent can make more reliable long-horizon goal-reaching decisions from static datasets.</p>
+              </details>
               <a href="https://arxiv.org/abs/2505.12737">Arxiv</a>
             </div>
           </div>
@@ -639,6 +704,10 @@
             <div class="paper-venue">Robotics: Science and Systems (RSS), 2025</div>
             <div class="thesis-tags"><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag axis t-rep">Representation</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
+              <details class="paper-tldr">
+                <summary>TL;DR</summary>
+                <p>Proposes a hierarchical, modular network for non-prehensile manipulation such as pushing. The structure separates reusable manipulation components, helping policies generalize across broader object configurations, layouts, and environments.</p>
+              </details>
               <a href="https://www.roboticsproceedings.org/rss21/p154.pdf">Paper</a>
               <a href="https://unicorn-hamnet.github.io">Project</a>
             </div>
@@ -653,6 +722,10 @@
             <div class="paper-venue">CVPR Workshop (Causal and Object-Centric Representations for Robotics), 2024 <span class="award">Oral</span></div>
             <div class="thesis-tags"><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag modality">Vision</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
+              <details class="paper-tldr">
+                <summary>TL;DR</summary>
+                <p>Reduces visual computation for robot manipulation by adaptively merging and pruning object tokens. The policy keeps task-relevant object information while removing redundant regions, improving efficiency without losing key grounding cues.</p>
+              </details>
               <a href="data/CVPRW_2024_CR.pdf">Paper</a>
               <a href="https://github.com/JisuHann/GoS">Github</a>
             </div>
@@ -665,7 +738,12 @@
             <div class="paper-title">Preference learning for guiding the tree search in continuous POMDPs</div>
             <div class="paper-authors">Jiyong Ahn, Sanghyeon Son, Dongryung Lee, <strong>Jisu Han</strong>, Dongwon Son, and Beomjoon Kim</div>
             <div class="paper-venue">Conference on Robot Learning (CoRL), 2023</div>
+            <div class="thesis-tags"><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag axis t-rep">Representation</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
+              <details class="paper-tldr">
+                <summary>TL;DR</summary>
+                <p>Learns a preference model that scores candidate outcomes during online planning in continuous POMDPs. These preferences guide tree search toward actions that better match expert intent, improving decision-making under uncertainty.</p>
+              </details>
               <a href="https://openreview.net/pdf?id=09UL1dCqf2n">Paper</a>
               <a href="https://www.youtube.com/watch?v=sONwle96q-8">Video</a>
               <a href="https://sites.google.com/view/preference-guided-pomcpow?usp=sharing">Project</a>
@@ -815,6 +893,10 @@
         // Update current tab index
         currentTab = tabs.indexOf(id);
 
+        if (window.location.hash !== '#' + id) {
+          history.replaceState(null, '', '#' + id);
+        }
+
         // Update active tab button
         const buttons = document.querySelectorAll('.navbar button');
         buttons.forEach(b => b.classList.remove('active'));
@@ -863,6 +945,11 @@
           }
         }, { passive: true });
       })();
+
+      const initialTab = window.location.hash.replace('#', '');
+      if (tabs.includes(initialTab)) {
+        showSection(initialTab);
+      }
     </script>
   </body>
 </html>
