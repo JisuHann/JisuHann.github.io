@@ -477,6 +477,22 @@
       margin-top: 3px;
     }
 
+    /* ── Service Section ── */
+    .service-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .service-list li {
+      padding: 4px 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #555555;
+    }
+    .service-list strong {
+      font-weight: 600;
+      color: #111111;
+    }
+
     /* ── Section transitions ── */
     .section { animation: fadeIn 0.25s ease; }
     @keyframes fadeIn {
@@ -577,7 +593,7 @@
         <div class="bio-text">
           <h1 class="name">Jisu Han</h1>
           <p>
-            Hi, I'm Jisu! I am a first-year Ph.D. student in the Interdisciplinary Program in Artificial Intelligence (IPAI) at
+            Hi, I'm Jisu! I am a second-year Ph.D. student in the Interdisciplinary Program in Artificial Intelligence (IPAI) at
             <a href="https://www.snu.ac.kr/">Seoul National University</a>, and a member of the
             <a href="http://mindlab-snu.notion.site">M.IN.D Lab</a>, where I am fortunate to be advised by
             <a href="https://scholar.google.com/citations?user=lQlioBoAAAAJ&hl=en">Taesup Moon</a>.
@@ -610,6 +626,7 @@
         <button onclick="showSection('publications', this)">Publications</button>
         <button onclick="showSection('projects', this)">Projects</button>
         <button onclick="showSection('experience', this)">Experiences</button>
+        <button onclick="showSection('service', this)">Service</button>
       </div>
 
       <!-- ════════════════ Research ════════════════ -->
@@ -827,12 +844,12 @@
       <!-- ════════════════ Experience ════════════════ -->
       <div id="experience" class="section">
 
-        <div class="exp-category">Teaching Assistant</div>
+        <div class="exp-category">Teaching Experience</div>
 
         <div class="exp-item">
           <div class="exp-date">Fall 2025</div>
           <div class="exp-detail">
-            <div class="exp-title">M2608.002100 Advanced Deep Learning</div>
+            <div class="exp-title">Teaching Assistant, Advanced Deep Learning</div>
             <div class="exp-org">Seoul National University (Prof. Taesup Moon)</div>
             <div class="exp-desc">Selected as an <strong>Outstanding Teaching Assistant</strong> for contributions to course operation, student support, and project mentoring.</div>
           </div>
@@ -887,6 +904,14 @@
 
       </div>
 
+      <!-- ════════════════ Service ════════════════ -->
+      <div id="service" class="section">
+        <div class="exp-category">Professional Service</div>
+        <ul class="service-list">
+          <li><strong>Reviewer</strong>, Conference on Robot Learning (CoRL), 2026</li>
+        </ul>
+      </div>
+
       <!-- ── Footer ── -->
       <footer style="text-align:center; padding:30px 0 10px; margin-top:20px; border-top:1px solid #eee; font-size:12px; color:#aaa;">
         &copy; 2026 Jisu Han. All rights reserved.
@@ -895,7 +920,7 @@
     </div><!-- /container -->
 
     <script>
-      const tabs = ['research', 'publications', 'projects', 'experience'];
+      const tabs = ['research', 'publications', 'projects', 'experience', 'service'];
       let currentTab = 0;
 
       function showSection(id, btn) {
