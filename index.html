@@ -608,7 +608,7 @@
             I was fortunate to work with <a href="https://clvrai.com/web_lim/">Joseph Lim</a> and <a href="http://dyros.snu.ac.kr/team/jaeheung-park/">Jaeheung Park</a>.
           </p>
           <div class="links">
-            <a href="mailto:jshcdi6658@gmail.com">Mail</a> <span class="sep">/</span>
+            <a href="mailto:jshcdi@snu.ac.kr">Mail</a> <span class="sep">/</span>
             <a href="https://github.com/JisuHann">Github</a> <span class="sep">/</span>
             <a href="https://www.linkedin.com/in/jisu-han-/">LinkedIn</a> <span class="sep">/</span>
             <a href="https://scholar.google.com/citations?hl=ko&user=WWg5SyQAAAAJ">Google Scholar</a> <span class="sep">/</span>
@@ -633,13 +633,13 @@
       <div id="research" class="section active">
         <!-- ── Research Vision ── -->
         <p class="vision-thesis">
-          The future I imagine looks like the coexistence portrayed in <a href="https://en.wikipedia.org/wiki/Detroit:_Become_Human" target="_blank" rel="noopener">Detroit: Become Human</a> — robots that don't just follow commands, but live alongside us, reading a room and adjusting as a person would. By <strong>skill</strong> here I mean an abstraction over how an agent gets something done — not a single fixed motion, but something that can be represented, grounded in a situation, and changed when it doesn't work. Cognitive science describes human skill this way too: under <a href="https://en.wikipedia.org/wiki/Schema_(psychology)#Motor_schemas" target="_blank" rel="noopener">schema theory</a>, a person reusing a "carry this" skill never repeats the same motion — they hold a flexible schema, read the context, and adjust, or fail and adjust the schema itself. <strong>I want robots to hold skills the same way: not as fixed scripts, but as abstractions that are represented, grounded in context, and updated through experience.</strong> Concretely, I study how agents <strong>represent</strong>, <strong>ground</strong>, and <strong>update</strong> skills along this loop.
+          The future I imagine looks like the coexistence portrayed in <a href="https://en.wikipedia.org/wiki/Detroit:_Become_Human" target="_blank" rel="noopener">Detroit: Become Human</a> — robots that don't just follow commands, but live alongside us, reading a room and adjusting as a person would. By <strong>skill</strong> here I mean an abstraction over how an agent gets something done — not a single fixed motion, but something that can be represented, grounded in a situation, and changed when it doesn't work. Cognitive science describes human skill this way too: under <a href="https://en.wikipedia.org/wiki/Schema_(psychology)#Motor_schemas" target="_blank" rel="noopener">schema theory</a>, a person reusing a "carry this" skill never repeats the same motion — they hold a flexible schema, read the context, and adjust, or fail and adjust the schema itself. <strong>I want robots to hold skills the same way: not as fixed scripts, but as abstractions that are represented, grounded in context, and updated through experience while remaining safe, aligned with human intent, and controllable in the physical world.</strong> Concretely, I study how agents <strong>represent</strong>, <strong>ground</strong>, and <strong>update</strong> skills along this loop.
         </p>
 
         <div class="loop-dia">
           <div class="ld-card c-rep">
             <div class="ld-title">① Representation</div>
-            <div class="ld-desc">What is a skill made of? — language, trajectory, policy, effect</div>
+            <div class="ld-desc">What is a skill made of? — language, trajectory, policy, effect, and safety-relevant context</div>
           </div>
           <div class="ld-card c-ground">
             <div class="ld-title">② Grounding</div>
@@ -647,12 +647,12 @@
           </div>
           <div class="ld-card c-update">
             <div class="ld-title">③ Update</div>
-            <div class="ld-desc">When a skill fails or breaks a constraint, can the agent tell on its own — and refine it, add a missing one, or drop one that no longer earns its place?</div>
+            <div class="ld-desc">When a skill fails or violates a safety constraint, can the agent tell on its own — and refine it, add a missing one, or drop one that no longer earns its place?</div>
           </div>
         </div>
 
         <p class="vision-thesis">
-          I look at how that plays out unevenly across LLMs, VLMs, and VLAs, and ask how their strengths can cover one another's gaps: LLMs and VLMs each handle part of the loop — representing and updating in language, or grounding in what's seen — but neither has to act, or live with the consequences of failing. VLA is where it becomes one piece: a single system that must represent, ground, <em>and</em> update together, in real time, under real physical consequence — <strong>the loop, embodied</strong>.
+          I look at how that plays out unevenly across LLMs, VLMs, and VLAs, and ask how their strengths can cover one another's gaps: LLMs and VLMs each handle part of the loop — representing and updating in language, or grounding in what's seen — but neither has to act, or live with the consequences of failing. VLA is where it becomes one piece: a single system that must represent, ground, <em>and</em> update together, in real time, under real physical consequence. For these systems, safety cannot be established only at the level of plans or outcomes; it must carry through to the motion a robot executes around people and objects — <strong>the loop, embodied</strong>.
         </p>
 
         <div class="goal-split">
@@ -685,13 +685,14 @@
           <div class="item-text">
             <div class="paper-title">SafeHRI-Nav: A Context-Aware Low-Level Safe Navigation Benchmark for Human-Robot Interaction</div>
             <div class="paper-authors">Authors anonymized during review</div>
-            <div class="paper-venue"><span class="status">In submission</span></div>
+            <div class="paper-venue"><span class="status">Submitted to ICLR 2027</span> &middot; <span class="award">IROS 2026 Semana Workshop &mdash; Accepted</span></div>
             <div class="thesis-tags"><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag modality">Vision</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
               <details class="paper-tldr">
                 <summary>TL;DR</summary>
                 <p>Benchmarks whether foundation-model robot policies adjust low-level navigation to safety context. It uses matched scenes where obstacle semantics or safety demand changes, exposing failures like treating a baby too similarly to a rigid object.</p>
               </details>
+              <a href="https://drive.google.com/file/d/1BK0MC1L93C2_Q6R74Bsi1vaARXvWkc4d/view?usp=sharing">Workshop Paper</a>
             </div>
           </div>
         </div>
