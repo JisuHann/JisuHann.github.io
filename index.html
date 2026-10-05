@@ -633,7 +633,7 @@
       <div id="research" class="section active">
         <!-- ── Research Vision ── -->
         <p class="vision-thesis">
-          The future I imagine looks like the coexistence portrayed in <a href="https://en.wikipedia.org/wiki/Detroit:_Become_Human" target="_blank" rel="noopener">Detroit: Become Human</a> — robots that don't just follow commands, but live alongside us, reading a room and adjusting as a person would. By <strong>skill</strong> here I mean an abstraction over how an agent gets something done — not a single fixed motion, but something that can be represented, grounded in a situation, and changed when it doesn't work. Cognitive science describes human skill this way too: under <a href="https://en.wikipedia.org/wiki/Schema_(psychology)#Motor_schemas" target="_blank" rel="noopener">schema theory</a>, a person reusing a "carry this" skill never repeats the same motion — they hold a flexible schema, read the context, and adjust, or fail and adjust the schema itself. <strong>I want robots to hold skills the same way: not as fixed scripts, but as abstractions that are represented, grounded in context, and updated through experience while remaining safe, aligned with human intent, and controllable in the physical world.</strong> Concretely, I study how agents <strong>represent</strong>, <strong>ground</strong>, and <strong>update</strong> skills along this loop.
+          Inspired by the coexistence portrayed in <a href="https://en.wikipedia.org/wiki/Detroit:_Become_Human" target="_blank" rel="noopener">Detroit: Become Human</a>, I want to build cognitive systems that learn through experience and adapt to the people sharing their environment. I view <strong>skills</strong> as flexible abstractions that agents <strong>represent</strong>, <strong>ground</strong> in context, and <strong>update</strong> through experience. <strong>My central interest is how scene understanding can guide changes in a robot's motions and subgoals, supporting human safety, predictability, and comfort throughout long-horizon tasks.</strong>
         </p>
 
         <div class="loop-dia">
@@ -643,16 +643,16 @@
           </div>
           <div class="ld-card c-ground">
             <div class="ld-title">② Grounding</div>
-            <div class="ld-desc">Does the skill still hold beyond where it was learned — in a new context, under safety constraints, over a long horizon?</div>
+            <div class="ld-desc">How should a skill adapt to a new scene — and how should its people, objects, and activities shape the robot's motion?</div>
           </div>
           <div class="ld-card c-update">
             <div class="ld-title">③ Update</div>
-            <div class="ld-desc">When a skill fails or violates a safety constraint, can the agent tell on its own — and refine it, add a missing one, or drop one that no longer earns its place?</div>
+            <div class="ld-desc">Can an agent recognize failures and safety violations, then refine its skills or learn new ones through experience?</div>
           </div>
         </div>
 
         <p class="vision-thesis">
-          I look at how that plays out unevenly across LLMs, VLMs, and VLAs, and ask how their strengths can cover one another's gaps: LLMs and VLMs each handle part of the loop — representing and updating in language, or grounding in what's seen — but neither has to act, or live with the consequences of failing. VLA is where it becomes one piece: a single system that must represent, ground, <em>and</em> update together, in real time, under real physical consequence. For these systems, safety cannot be established only at the level of plans or outcomes; it must carry through to the motion a robot executes around people and objects — <strong>the loop, embodied</strong>.
+          I study how LLMs, VLMs, and VLAs can connect scene understanding with adaptive action. Around people, the same task may require a robot to pause, change its approach, or revise a subgoal as the scene changes. <strong>Does safety-relevant context actually influence the motion a robot executes?</strong> My navigation benchmarking work examines this question beyond task success. I plan to extend this evaluation to manipulation and connect it with interpretable policy design for safe adaptation over long horizons.
         </p>
 
         <div class="goal-split">
