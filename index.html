@@ -21,7 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
     <style>
-    <style>
     /*
       Palette rule: cool (navy/sky) carries the interface, warm (toffee) is reserved
       for ONE deliberate accent role (the Grounding axis) so it reads as intentional
@@ -582,6 +581,12 @@
       .navbar button:active { color: #5B9BC4; }
       a:active { color: #2A5C9A; }
     }
+    .more-details { margin: 12px 0; font-size: 14px; }
+    .more-details summary { cursor: pointer; color: #2A5C9A; font-weight: 500; padding: 5px 0; }
+    .more-details[open] > summary { margin-bottom: 12px; }
+    .more-details p { margin-top: 10px; }
+    summary:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid #2A5C9A; outline-offset: 4px; }
+    .navbar .blog-nav { padding: 10px 15px; margin-left: auto; white-space: nowrap; font-weight: 600; }
     </style>
   </head>
 
@@ -592,12 +597,8 @@
       <div class="bio">
         <div class="bio-text">
           <h1 class="name">Jisu Han</h1>
-          <p>
-            Hi, I'm Jisu! I am a second-year Ph.D. student in the Interdisciplinary Program in Artificial Intelligence (IPAI) at
-            <a href="https://www.snu.ac.kr/">Seoul National University</a>, and a member of the
-            <a href="http://mindlab-snu.notion.site">M.IN.D Lab</a>, where I am fortunate to be advised by
-            <a href="https://scholar.google.com/citations?user=lQlioBoAAAAJ&hl=en">Taesup Moon</a>.
-          </p>
+          <p>Ph.D. student in AI at <a href="https://www.snu.ac.kr/">Seoul National University</a>, advised by <a href="https://scholar.google.com/citations?user=lQlioBoAAAAJ&amp;hl=en">Taesup Moon</a> at <a href="http://mindlab-snu.notion.site">M.IN.D Lab</a>.</p>
+          <details class="more-details"><summary>More about me</summary>
           <p>
             I obtained my Master's Degree in the Graduate School of AI at
             <a href="https://www.kaist.ac.kr/en/">KAIST</a>, in the
@@ -607,6 +608,7 @@
             <a href="http://ewha.ac.kr/">Ewha Womans University</a>.
             I was fortunate to work with <a href="https://clvrai.com/web_lim/">Joseph Lim</a> and <a href="http://dyros.snu.ac.kr/team/jaeheung-park/">Jaeheung Park</a>.
           </p>
+          </details>
           <div class="links">
             <a href="mailto:jshcdi@snu.ac.kr">Mail</a> <span class="sep">/</span>
             <a href="https://github.com/JisuHann">Github</a> <span class="sep">/</span>
@@ -621,16 +623,19 @@
       </div>
 
       <!-- ── Tabs ── -->
-      <div class="navbar">
+      <nav class="navbar" aria-label="Main navigation">
         <button class="active" onclick="showSection('research', this)">Research</button>
         <button onclick="showSection('publications', this)">Publications</button>
         <button onclick="showSection('projects', this)">Projects</button>
         <button onclick="showSection('experience', this)">Experiences</button>
         <button onclick="showSection('service', this)">Service</button>
-      </div>
+        <a class="blog-nav" href="blog/index.html">Blog →</a>
+      </nav>
 
       <!-- ════════════════ Research ════════════════ -->
       <div id="research" class="section active">
+        <p class="section-intro">My research focuses on representing reusable skills, grounding them in context, and refining them through experience—with the goal of reliable, human-aware behavior in long-horizon tasks.</p>
+        <details class="more-details research-details"><summary>More about my research questions</summary>
         <!-- ── Research Vision ── -->
         <p class="vision-thesis">
           Inspired by the coexistence portrayed in <a href="https://en.wikipedia.org/wiki/Detroit:_Become_Human" target="_blank" rel="noopener">Detroit: Become Human</a>, I want to build cognitive systems that learn through experience and adapt to the people sharing their environment. I view <strong>skills</strong> as flexible abstractions that agents <strong>represent</strong>, <strong>ground</strong> in context, and <strong>update</strong> through experience. <strong>My central interest is how scene understanding can guide changes in a robot's motions and subgoals, enabling capable, predictable, and human-aware behavior throughout long-horizon tasks.</strong>
@@ -673,6 +678,7 @@
             <span class="video-caption">Detroit: Become Human — the coexistence I imagine</span>
           </div>
         </div>
+        </details>
       </div>
 
       <!-- ════════════════ Publications ════════════════ -->
@@ -780,7 +786,7 @@
             <div class="paper-title">Real-world Chess Robot Teacher</div>
             <div class="paper-authors"><strong>Jisu Han</strong>, Chaehyun Song, Minjae Song, Hwancheol Kim, and Semin Ahn</div>
             <div class="paper-venue">2025 Fall Class Project</div>
-            <div class="paper-desc">Real-world robotic teacher system capable of teaching chess in physical environments. Qwen3-VL-Thinking model for Chess reasoning, and Isaac-Gr00T for action reasoning.</div>
+            <div class="paper-desc">A robot that teaches chess in the physical world. Qwen3-VL-Thinking model for chess reasoning, and Isaac-Gr00T for action reasoning.</div>
             <div class="thesis-tags"><span class="thesis-tag axis t-rep">Representation</span><span class="thesis-tag axis t-ground">Grounding</span><span class="thesis-tag modality">Language</span><span class="thesis-tag modality">Vision</span><span class="thesis-tag modality">Robot</span></div>
             <div class="paper-links">
               <a href="https://chain-culotte-70e.notion.site/1-Real-world-Chess-Robot-Teacher-27ffb979596d81f4a366d3dfc53976bc?source=copy_link">Notion</a>
@@ -808,7 +814,7 @@
             <div class="paper-title">Clarifying the task: Identifying task from human videos as a representation</div>
             <div class="paper-authors"><strong>Jisu Han</strong> and Doohyun Lee</div>
             <div class="paper-venue">AI611: Machine Learning for Robotics (Prof. Joseph Lim) project, 2023</div>
-            <div class="paper-desc">To learn a generalized reward function that can be utilized on reinforcement learning, we devise a representation that can effectively disentangle environment information and task information.</div>
+            <div class="paper-desc">Learning task representations from human videos. To learn a generalized reward function for reinforcement learning, we devise a representation that disentangles environment information and task information.</div>
             <div class="paper-links">
               <a href="https://general-bone-2b1.notion.site/Clarifying-the-task-Identifying-task-from-human-videos-as-a-representation-for-Robotics-d9e9de56af7c4430bec137a0ff87027b">Project</a>
             </div>
@@ -918,15 +924,15 @@
       <div id="service" class="section">
         <div class="exp-category">Professional Service</div>
         <ul class="service-list">
-          <li><strong>Reviewer</strong>, Conference on Robot Learning (CoRL), 2026</li>
           <li><strong>Reviewer</strong>, International Conference on Learning Representations (ICLR), 2027</li>
           <li><strong>Reviewer</strong>, NeurIPS Workshop on Continual World Models, 2026</li>
+          <li><strong>Reviewer</strong>, Conference on Robot Learning (CoRL), 2026</li>
         </ul>
       </div>
 
       <!-- ── Footer ── -->
       <footer style="text-align:center; padding:30px 0 10px; margin-top:20px; border-top:1px solid #eee; font-size:12px; color:#aaa;">
-        Last updated <time datetime="2026-09-01">September 1, 2026</time> &middot; &copy; 2026 Jisu Han. All rights reserved.
+        Last updated <time datetime="2026-10-11">October 11, 2026</time> &middot; &copy; 2026 Jisu Han. All rights reserved.
       </footer>
 
     </div><!-- /container -->
