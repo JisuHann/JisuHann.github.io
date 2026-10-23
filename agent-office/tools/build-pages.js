@@ -5,6 +5,8 @@
 const fs = require('fs'), path = require('path'), http = require('http'), { spawn } = require('child_process');
 const ROOT = path.join(__dirname, '..'), REPLAY = path.join(ROOT, 'docs', 'replay.json'), OUT = path.join(ROOT, 'index.html');
 const PORT = 4791, SECONDS = 95;
+// The page first tries this live (redacted) stream and falls back to the fake replay if it is unreachable. Override with LIVE_URL for tests; LIVE_URL=none builds a demo-only page.
+const LIVE = process.env.LIVE_URL || 'https://ipai234.taile22449.ts.net/events';
 
 function record() {
   return new Promise((resolve, reject) => {
@@ -44,9 +46,31 @@ const MOCK = (replay) => `<script>
   const REPLAY = ${JSON.stringify(replay)};
   const BASE = REPLAY.find((r) => r.e === 'ev').d.at - REPLAY.find((r) => r.e === 'ev').t, LOOP = REPLAY[REPLAY.length - 1].t + 6000;
   const shift = (v, off) => Array.isArray(v) ? v.map((x) => shift(x, off)) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, shift(x, off)])) : typeof v === 'number' && v > 1.5e12 ? v + off : v;
+  const LIVE = ${JSON.stringify(LIVE)}, RealES = window.EventSource;
+  const NOTE = {
+    live: 'Live: my real Claude Code / Codex sessions · names and content are hidden',
+    demo: 'Demo with fake data (the live view is offline right now) · the real app shows your own sessions live',
+  };
+  const setNote = (m) => { const r = document.getElementById('demoRibbon'); if (r) r.firstChild.textContent = NOTE[m] + ' · '; else addEventListener('DOMContentLoaded', () => setNote(m)); };
+  // Tries the live stream first; if it errors or sends nothing within 7 s, replays the fake recording instead.
   class FakeES {
-    constructor() { this.l = {}; this.timers = []; setTimeout(() => this.play(), 50); }
+    constructor() {
+      this.l = {}; this.timers = []; this.mode = 'try'; this.onerror = null;
+      if (LIVE === 'none') return void this.demo();
+      try { this.real = new RealES(LIVE); } catch (e) { return void this.demo(); }
+      for (const n of ['snap', 'ev']) this.real.addEventListener(n, (m) => {
+        if (this.mode === 'demo') return;
+        if (this.mode === 'try') { this.mode = 'live'; clearTimeout(this.wait); setNote('live'); }
+        (this.l[n] || []).forEach((f) => f(m));
+      });
+      this.real.onerror = () => { if (this.mode === 'try') this.demo(); else if (this.mode === 'live' && this.onerror) this.onerror(); };
+      this.wait = setTimeout(() => { if (this.mode === 'try') this.demo(); }, 7000);
+    }
     addEventListener(n, f) { (this.l[n] = this.l[n] || []).push(f); }
+    demo() {
+      this.mode = 'demo'; if (this.real) this.real.close(); setNote('demo');
+      setTimeout(() => this.play(), 50);
+    }
     play() {
       const off = Date.now() - BASE - REPLAY[0].t; // shift recorded clock to "now"
       for (const r of REPLAY) this.timers.push(setTimeout(() => (this.l[r.e] || []).forEach((f) => f({ data: JSON.stringify(shift(r.d, off)) })), r.t));
@@ -58,7 +82,7 @@ const MOCK = (replay) => `<script>
   window.fetch = (u, o) => String(u).startsWith('/setup') ? Promise.resolve(new Response(JSON.stringify({ ok: false, msg: 'Demo only: settings are disabled here.' }))) : realFetch(u, o);
 })();
 </script>`;
-const RIBBON = `<div id="demoRibbon" style="position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:99;background:#1d2033;color:#fff;font:600 12px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:6px 12px;border-radius:14px;opacity:.92;pointer-events:none;text-align:center;width:max-content;max-width:calc(100vw - 24px)">Demo with fake data · the real app shows your own Claude Code / Codex sessions live · <span style="color:#9ecbff">jisuhann.github.io/agent-office</span></div>`;
+const RIBBON = `<div id="demoRibbon" style="position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:99;background:#1d2033;color:#fff;font:600 12px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;padding:6px 12px;border-radius:14px;opacity:.92;pointer-events:none;text-align:center;width:max-content;max-width:calc(100vw - 24px)">Connecting… · <span style="color:#9ecbff">jisuhann.github.io/agent-office</span></div>`;
 
 (async () => {
   if (process.argv.includes('--record')) { console.log(`recording ${SECONDS}s from demo.js …`); fs.writeFileSync(REPLAY, JSON.stringify(scrub(await record()))); }

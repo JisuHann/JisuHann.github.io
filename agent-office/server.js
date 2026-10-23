@@ -84,6 +84,8 @@ function getSession(proj, sid) {
 // only an allowlist of fields survives (project names, tools, rooms, timings); prompts, replies, file names,
 // commands, paths, todo text, usage and the user name are replaced with placeholders. /setup is disabled.
 const PUBLIC_VIEW = process.env.PUBLIC_VIEW === '1';
+// PUBLIC_VIEW only: which web page may read /events from another origin (e.g. a GitHub Pages site showing this live view)
+const PUBLIC_ORIGIN = process.env.PUBLIC_ORIGIN || 'https://jisuhann.github.io';
 const hid = (v) => v == null ? v : crypto.createHash('sha1').update(String(v)).digest('hex').slice(0, 12); // ids embed paths/usernames; same input -> same hash, so the page can still match them
 const BUBBLE_TEXT = { think: 'Thinking…', say: '…', user: '(message)', error: 'Error' };
 const redactState = (st) => st && {
@@ -742,7 +744,7 @@ const server = http.createServer((req, res) => {
   if (!authed(req, res)) return;
   const url = req.url.split('?')[0];
   if (url === '/events') {
-    res.writeHead(200, { 'Content-Type': 'text/event-stream; charset=utf-8', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
+    res.writeHead(200, { 'Content-Type': 'text/event-stream; charset=utf-8', 'Cache-Control': 'no-cache', Connection: 'keep-alive', ...(PUBLIC_VIEW ? { 'Access-Control-Allow-Origin': PUBLIC_ORIGIN } : {}) });
     res.write(`event: snap\ndata: ${JSON.stringify(redact('snap', snapshot()))}\n\n`);
     clients.add(res);
     req.on('close', () => clients.delete(res));

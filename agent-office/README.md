@@ -5,7 +5,7 @@ Each project gets its own coloured room. Characters walk to their desk when they
 
 > **Based on [toplainsoft/claude-office](https://github.com/toplainsoft/claude-office)** (MIT, © TOPLAIN SOFT) — the original idea, log parser and isometric renderer come from there. This repo is a modified fork; see [what changed](#what-changed-from-the-original).
 
-**▶ [Live demo (fake data)](https://jisuhann.github.io/agent-office/)** — the demo replays scripted fake sessions. The real app shows *your own* sessions, live, from your own machine.
+**▶ [jisuhann.github.io/agent-office](https://jisuhann.github.io/agent-office/)** — shows the author's real sessions live (names and content hidden); if that machine is offline it replays scripted fake sessions instead. The real app shows *your own* sessions, live, from your own machine.
 
 ![Agent Office](docs/office.png)
 
@@ -80,7 +80,7 @@ HOST=0.0.0.0 PORT=4777 node server.js --no-open
 PUBLIC_VIEW=1 HOST=127.0.0.1 PORT=4778 node server.js --no-open
 ```
 
-`PUBLIC_VIEW=1` filters everything **on the server** before it is sent: only project names, tools, rooms and timings survive. Prompts, replies, file names, commands, paths, todo text, usage and your user name are replaced by placeholders, ids are hashed, and `/setup` is disabled. (The 👀 button only blurs on screen; the raw stream would still contain everything, so don't rely on it for public sharing.) Put a tunnel in front of *this* instance, not your private one. Note: Cloudflare quick tunnels (`trycloudflare.com`) don't pass Server-Sent Events, so the page stays on "Connecting"; use Tailscale Funnel or a named tunnel.
+`PUBLIC_VIEW=1` filters everything **on the server** before it is sent: only project names, tools, rooms and timings survive. Prompts, replies, file names, commands, paths, todo text, usage and your user name are replaced by placeholders, ids are hashed, and `/setup` is disabled. (The 👀 button only blurs on screen; the raw stream would still contain everything, so don't rely on it for public sharing.) Put a tunnel in front of *this* instance, not your private one. `PUBLIC_ORIGIN` (default `https://jisuhann.github.io`) is the web page allowed to read `/events` from another origin, so a static site can show this live view; the demo page falls back to fake data when the live server is unreachable. Note: Cloudflare quick tunnels (`trycloudflare.com`) don't pass Server-Sent Events, so the page stays on "Connecting"; use Tailscale Funnel or a named tunnel.
 
 ### Usage display (optional)
 
