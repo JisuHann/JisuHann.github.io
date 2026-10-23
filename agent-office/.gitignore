@@ -1,0 +1,12 @@
+# 개인 설정·사용량 (각자 컴퓨터에서 만들어짐)
+office.json
+usage.json
+usage.json.*.tmp
+captures/
+_to_delete/
+.DS_Store
+node_modules/
+.office-token
+.pid
+server.log
+.fablize/
