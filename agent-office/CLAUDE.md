@@ -42,5 +42,7 @@ Run: `node server.js` (port 4777). Flags/env: `--no-open`, `PORT`, `HOST`, `OFFI
 - Routing: `route()` / `inner()` / `roomAt()`; helpers enter and leave through `agentHome()`. Idle > 25 s → desk, > 40 s → `loungeSpot()` with a ☕ badge.
 - Characters are 14×18 chibi pixel sprites (big head, sparkly eyes, blush; `drawPerson`), `avatar(kind)` makes the label portraits. Labels are DOM (`.olab`, `renderLabels` / `placeLabels`, clamped into the stage).
 - Font is Helvetica Neue (system font, no web-font links). Clouds/rain are disabled (`SHOW_CLOUDS = false`) because they covered the rooms; the sun/stars still show.
+- `PUBLIC_VIEW=1` (server): `redact()` is an **allowlist** applied in `broadcast()` and to the first `/events` snapshot. When you add a field to `snapshot()` or an event, add it to `redact()` only if it carries no content (prompts, paths, file/command text, ids → `hid()`). Test: run a public instance and a normal one on the same logs, collect every string from the normal stream and assert none appears in the public stream (this once caught `day.prompts`/`day.files` and path-bearing session keys).
+- A clock (`#clock`, seconds) sits in the LIVE pill so you can see the page is alive.
 - Privacy mode `body.priv` blurs names and task text; add new personal-content elements to its selector list.
 - Verify UI changes in a real browser (screenshots), not just by reading code: `node demo.js --no-open`, then check overlap/clipping at several viewport sizes.

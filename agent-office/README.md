@@ -74,6 +74,14 @@ HOST=0.0.0.0 PORT=4777 node server.js --no-open
 - No token by default: anyone who can reach the port can see the office. To lock it: `OFFICE_TOKEN=secret HOST=0.0.0.0 node server.js`, then open `http://<host>:4777/?token=secret`.
 - It is plain HTTP. On untrusted networks use an SSH tunnel (`ssh -L 4777:localhost:4777 host`) or bind to a Tailscale IP.
 
+### Sharing publicly without leaking content (optional)
+
+```bash
+PUBLIC_VIEW=1 HOST=127.0.0.1 PORT=4778 node server.js --no-open
+```
+
+`PUBLIC_VIEW=1` filters everything **on the server** before it is sent: only project names, tools, rooms and timings survive. Prompts, replies, file names, commands, paths, todo text, usage and your user name are replaced by placeholders, ids are hashed, and `/setup` is disabled. (The 👀 button only blurs on screen; the raw stream would still contain everything, so don't rely on it for public sharing.) Put a tunnel in front of *this* instance, not your private one. Note: Cloudflare quick tunnels (`trycloudflare.com`) don't pass Server-Sent Events, so the page stays on "Connecting"; use Tailscale Funnel or a named tunnel.
+
 ### Usage display (optional)
 
 The ⚙️ dialog can add a one-line `statusLine` to `~/.claude/settings.json` so 5-hour/weekly Claude usage shows at the top right (your original file is backed up as `settings.json.before-claude-office`). Codex usage is read from its logs automatically.

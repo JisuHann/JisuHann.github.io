@@ -73,6 +73,7 @@ button{font:inherit;color:inherit}
 #usage .na{grid-column:2/4;color:var(--faint)}
 #usage:not(:empty)+#live{margin-left:0}
 #live{margin-left:auto;pointer-events:auto;display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--sub);background:rgba(255,255,255,.92);border-radius:999px;padding:6px 11px}
+#live b{font-weight:600;font-variant-numeric:tabular-nums;color:var(--sub);padding-left:8px;margin-left:2px;border-left:1px solid #dfe2ee}
 #live i{width:7px;height:7px;border-radius:50%;background:#c3c6d6}
 #live.ok{color:var(--live)}
 #live.ok i{background:var(--live);animation:breathe 2s ease-in-out infinite}
@@ -162,7 +163,7 @@ body.priv :is(.olab>b,.olab .p em,#tname,#tsub,.al b,.al p,.bub,.nm,.sign){filte
     <div id="head">
       <div id="title"><div class="tx"><b id="tname">Connecting</b><span id="tsub"></span></div></div>
       <div id="usage" title=""></div>
-      <div id="live"><i></i><span>LIVE</span></div>
+      <div id="live"><i></i><span>LIVE</span><b id="clock" title="Current time"></b></div>
     </div>
     <div id="tools"><button id="zin" aria-label="Zoom in">＋</button><button id="zout" aria-label="Zoom out">－</button><button id="zfit" aria-label="Fit all">⤢</button><button id="nightBtn" aria-label="Night mode"></button><button id="setupBtn" aria-label="Settings" title="Settings: office name · your name · usage display">⚙️</button><button id="privBtn" aria-label="Privacy" title="Privacy: blur names and task text (for screenshots)">🙈</button></div>
     <div id="empty"></div>
@@ -1089,6 +1090,8 @@ setPriv((() => { try { return !!localStorage.getItem('office.priv'); } catch { r
 requestAnimationFrame(frame);
 
 const live = $('#live');
+const clockEl = $('#clock'), tick = () => { clockEl.textContent = new Date().toLocaleTimeString('en-GB'); };
+tick(); setInterval(tick, 1000); // seconds tick so you can see the page is alive
 function connect() {
   const es = new EventSource('/events');
   es.addEventListener('snap', (m) => { RAW = SNAP = JSON.parse(m.data); renderUsage(RAW.usage);

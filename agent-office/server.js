@@ -80,8 +80,36 @@ function getSession(proj, sid) {
   return S;
 }
 
+// PUBLIC_VIEW=1: share the office without leaking content. Everything sent to browsers goes through redact():
+// only an allowlist of fields survives (project names, tools, rooms, timings); prompts, replies, file names,
+// commands, paths, todo text, usage and the user name are replaced with placeholders. /setup is disabled.
+const PUBLIC_VIEW = process.env.PUBLIC_VIEW === '1';
+const hid = (v) => v == null ? v : crypto.createHash('sha1').update(String(v)).digest('hex').slice(0, 12); // ids embed paths/usernames; same input -> same hash, so the page can still match them
+const BUBBLE_TEXT = { think: 'Thinking…', say: '…', user: '(message)', error: 'Error' };
+const redactState = (st) => st && {
+  room: st.room, tool: st.tool, detail: '', mood: st.mood, idle: st.idle,
+  bubble: st.bubble && { k: st.bubble.k, text: BUBBLE_TEXT[st.bubble.k] || '…' },
+  board: st.board && st.board.map(i => ({ t: 'task', s: i.s })),
+  agents: (st.agents || []).map(a => ({ id: hid(a.id), type: a.type, desc: a.type, room: a.room, tool: a.tool, detail: '', tools: a.tools, since: a.since })),
+};
+function redact(event, d) {
+  if (!PUBLIC_VIEW) return d;
+  if (event === 'snap') return {
+    root: '', codex: null, self: '', user: 'You', building: d.building, usage: { claude: null, codex: null },
+    setup: { need: false, statusLine: 'other', hasClaude: true, hasCodex: true },
+    floors: d.floors.map(f => ({ n: f.n, proj: f.name, name: f.name, mtime: f.mtime, active: f.active, total: f.total,
+      sessions: f.sessions.map(x => ({ key: hid(x.key), sid: hid(x.sid), agent: x.agent, work: x.work, month: x.month, day: x.day && { tools: x.day.tools, files: [], prompts: [], errors: x.day.errors }, waiting: x.waiting, cwd: '', tools: x.tools,
+        started: x.started, mtime: x.mtime, active: x.active, label: 'session', state: redactState(x.state) })) })),
+  };
+  const o = { k: d.k, session: hid(d.session), at: d.at, id: hid(d.id), type: d.type, tool: d.tool, room: d.room, since: d.since };
+  if (d.k in BUBBLE_TEXT) o.text = BUBBLE_TEXT[d.k];
+  if ('detail' in d) o.detail = '';
+  if ('desc' in d) o.desc = d.type;
+  if (d.k === 'board') o.items = (d.items || []).map(i => ({ t: 'task', s: i.s }));
+  return o;
+}
 function broadcast(event, data) {
-  const msg = `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`;
+  const msg = `event: ${event}\ndata: ${JSON.stringify(redact(event, data))}\n\n`;
   for (const res of clients) res.write(msg);
 }
 
@@ -715,12 +743,12 @@ const server = http.createServer((req, res) => {
   const url = req.url.split('?')[0];
   if (url === '/events') {
     res.writeHead(200, { 'Content-Type': 'text/event-stream; charset=utf-8', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
-    res.write(`event: snap\ndata: ${JSON.stringify(snapshot())}\n\n`);
+    res.write(`event: snap\ndata: ${JSON.stringify(redact('snap', snapshot()))}\n\n`);
     clients.add(res);
     req.on('close', () => clients.delete(res));
     return;
   }
-  if (url === '/setup' && req.method === 'POST') return handleSetup(req, res);
+  if (url === '/setup' && req.method === 'POST' && !PUBLIC_VIEW) return handleSetup(req, res);
   if (url === '/' || url === '/index.html') {
     fs.readFile(HTML, (err, buf) => {
       if (err) { res.writeHead(500); return res.end('office.html not found'); }
